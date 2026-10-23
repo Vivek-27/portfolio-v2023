@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NAVBAR & FLOATING MENU STYLES - Dennis Snellenberg Editorial Aesthetic
+   NAVBAR & FLOATING MENU STYLES - Dennis Snellenberg Light Theme Navbar
    ========================================================================== */
 
 .site-navbar {
@@ -8,10 +8,10 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(20, 21, 23, 0.85);
+  background: rgba(248, 249, 250, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   padding: 16px 6vw;
   transition: all 0.3s ease;
 }
@@ -38,9 +38,10 @@
   height: 34px;
   border-radius: 50%;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: #1c1d20;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #ffffff;
   flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .logo-avatar-img {
@@ -59,15 +60,15 @@
 
 .logo-author {
   font-size: 14.5px;
-  font-weight: 600;
-  color: #ffffff;
+  font-weight: 700;
+  color: #111827;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .logo-author-hover {
   font-size: 11.5px;
-  font-weight: 500;
-  color: #2dd4bf;
+  font-weight: 600;
+  color: #0f766e;
   position: absolute;
   top: 100%;
   left: 0;
@@ -93,7 +94,7 @@
 .nav-item-link {
   font-size: 14px;
   font-weight: 500;
-  color: #9ca3af;
+  color: #4b5563;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -103,24 +104,24 @@
 }
 
 .nav-item-link:hover {
-  color: #ffffff;
+  color: #111827;
 }
 
 .nav-item-link.active {
-  color: #ffffff;
-  font-weight: 600;
+  color: #111827;
+  font-weight: 700;
 }
 
 .nav-active-dot {
-  color: #2dd4bf;
+  color: #0f766e;
   font-size: 18px;
   line-height: 0;
 }
 
 .nav-resume-btn {
-  background: rgba(15, 118, 110, 0.2);
-  border: 1px solid rgba(45, 212, 191, 0.35);
-  color: #2dd4bf;
+  background: rgba(15, 118, 110, 0.08);
+  border: 1px solid rgba(15, 118, 110, 0.25);
+  color: #0f766e;
   padding: 8px 18px;
   border-radius: 30px;
   font-size: 13px;
@@ -130,7 +131,7 @@
 }
 
 .nav-resume-btn:hover {
-  background: rgba(15, 118, 110, 0.35);
+  background: rgba(15, 118, 110, 0.16);
   transform: translateY(-1px);
 }
 
@@ -146,11 +147,11 @@
 .hamburger-icon {
   width: 26px;
   height: 26px;
-  filter: invert(1);
+  filter: none;
 }
 
 /* ==========================================================================
-   FLOATING CIRCLUAR MENU BUTTON (Appears on Scroll)
+   FLOATING CIRCULAR MENU BUTTON (Appears on Scroll)
    ========================================================================== */
 
 .floating-menu-btn {
@@ -162,7 +163,7 @@
   border-radius: 50%;
   background: #1c1d20;
   border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -186,7 +187,7 @@
 .floating-menu-btn:hover {
   transform: scale(1.1);
   background: #25272c;
-  border-color: rgba(45, 212, 191, 0.4);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.4);
 }
 
 .btn-hamburger-lines {
@@ -204,7 +205,7 @@
 }
 
 /* ==========================================================================
-   MOBILE SLIDE-OUT DRAWER
+   MOBILE SLIDE-OUT DRAWER (Signature Dark Drawer)
    ========================================================================== */
 
 .mobile-drawer {
@@ -224,7 +225,7 @@
 .drawer-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(8px);
   opacity: 0;
   transition: opacity 0.4s ease;
@@ -243,7 +244,7 @@
   max-width: 420px;
   background: #1c1d20;
   border-left: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: -20px 0 50px rgba(0, 0, 0, 0.6);
+  box-shadow: -20px 0 50px rgba(0, 0, 0, 0.5);
   padding: 40px 32px;
   display: flex;
   flex-direction: column;
@@ -268,7 +269,7 @@
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #6b7280;
+  color: #71717a;
 }
 
 .drawer-close-btn {
@@ -338,7 +339,7 @@
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
-  color: #6b7280;
+  color: #71717a;
 }
 
 .drawer-socials-links {

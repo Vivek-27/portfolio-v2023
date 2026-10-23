@@ -342,13 +342,6 @@ const Home = () => {
                 >
                   LinkedIn
                 </a>
-                <a
-                  href="https://www.instagram.com/vivekumar27_/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Instagram
-                </a>
               </div>
             </div>
           </div>

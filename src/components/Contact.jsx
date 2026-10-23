@@ -133,9 +133,6 @@ const Contact = () => {
                   <a href="https://www.linkedin.com/in/vivek-fullstack/" target="_blank" rel="noreferrer">
                     LinkedIn ↗
                   </a>
-                  <a href="https://www.instagram.com/vivekumar27_/" target="_blank" rel="noreferrer">
-                    Instagram ↗
-                  </a>
                 </div>
               </div>
             </div>

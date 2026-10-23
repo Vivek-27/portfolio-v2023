@@ -6,7 +6,6 @@ import './work.css';
 // Project Images
 import projectVision from '../images/project_vision.png';
 import projectFileShare from '../images/project_fileShare.png';
-import projectInstagram from '../images/project_instagram.png';
 import projectSnakeWaterGun from '../images/project_snake_water_gun.png';
 import projectYoutube from '../images/project_youtube.png';
 import projectLanding from '../images/project_landing_page.png';
@@ -110,23 +109,23 @@ const PROJECTS_DATA = [
     isLive: false
   },
   {
-    id: 'instagram-clone',
-    title: 'Instagram Full-Stack Platform',
+    id: 'campus-connect',
+    title: 'CampusConnect: Student Marketplace & Real-Time Collaboration',
     category: 'fullstack',
     categoryLabel: 'Full-Stack MERN',
-    badge: 'MERN Stack',
-    desc: 'Full-featured social media platform with user authentication, photo feeds, profile management, following/followers graph, and instant post reactions.',
+    badge: 'MERN Stack 🎓',
+    desc: 'Campus marketplace platform featuring student peer-to-peer commerce, real-time messaging, Google OAuth authentication, and Razorpay payment gateway integration.',
     highlights: [
-      'JWT token-based stateless authentication & session handling',
-      'Multi-image uploads with responsive grid rendering',
-      'Live comment and like interactions powered by Node.js/MongoDB',
-      'Deployed on Vercel with responsive mobile-ready interface'
+      'Stateless JWT & Google OAuth 2.0 secure authentication',
+      'Real-time peer chat and instant notifications with Socket.IO',
+      'Cloudinary media storage and image optimization pipelines',
+      'Razorpay payment checkout flow integration'
     ],
-    tech: ['React.js', 'Node.js', 'Express', 'MongoDB', 'Cloudinary', 'JWT'],
-    liveUrl: 'https://instagram-cc.vercel.app/',
-    githubUrl: 'https://github.com/Vivek-27/instagram-mern-clone',
-    image: projectInstagram,
-    isLive: true
+    tech: ['React.js', 'Node.js', 'Express', 'MongoDB', 'Socket.IO', 'Razorpay', 'Cloudinary'],
+    liveUrl: null,
+    githubUrl: 'https://github.com/Vivek-27/campus-connect-platform',
+    image: null,
+    isLive: false
   },
   {
     id: 'flipkart-clone',

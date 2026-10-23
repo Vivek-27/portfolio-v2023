@@ -1,13 +1,13 @@
 /* ==========================================================================
-   ABOUT PAGE STYLES - Modern Dennis Snellenberg Aesthetic
+   ABOUT PAGE STYLES - Modern Dennis Snellenberg Editorial Aesthetic (Light Theme)
    ========================================================================== */
 
 .about-wrapper {
   width: 100%;
   min-height: 100vh;
-  background-color: #141517;
-  color: #ffffff;
-  padding: 80px 6vw 100px 6vw;
+  background-color: #f8f9fa;
+  color: #1c1d20;
+  padding: 60px 6vw 100px 6vw;
   display: flex;
   flex-direction: column;
   gap: 70px;
@@ -34,14 +34,14 @@
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #2dd4bf;
+  color: #0f766e;
   text-transform: uppercase;
 }
 
 .about-resume-hero-btn {
-  background: rgba(15, 118, 110, 0.2);
-  border: 1px solid rgba(45, 212, 191, 0.35);
-  color: #2dd4bf;
+  background: rgba(15, 118, 110, 0.08);
+  border: 1px solid rgba(15, 118, 110, 0.25);
+  color: #0f766e;
   padding: 8px 18px;
   border-radius: 30px;
   font-size: 13px;
@@ -51,7 +51,7 @@
 }
 
 .about-resume-hero-btn:hover {
-  background: rgba(15, 118, 110, 0.35);
+  background: rgba(15, 118, 110, 0.16);
   transform: translateY(-2px);
 }
 
@@ -66,20 +66,24 @@
   font-size: clamp(2rem, 4.2vw, 3.6rem);
   font-weight: 700;
   line-height: 1.15;
-  color: #ffffff;
+  color: #111827;
   letter-spacing: -0.02em;
   margin-bottom: 20px;
+}
+
+.about-headline .text-highlight {
+  color: #0f766e;
 }
 
 .about-bio-lead {
   font-size: clamp(1.05rem, 1.35vw, 1.25rem);
   line-height: 1.65;
-  color: #9ca3af;
+  color: #4b5563;
   max-width: 780px;
 }
 
 .about-bio-lead strong {
-  color: #ffffff;
+  color: #111827;
 }
 
 .about-hero-avatar-box {
@@ -87,11 +91,11 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  background: #1c1d20;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 24px;
   padding: 24px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .avatar-frame {
@@ -99,8 +103,8 @@
   height: 140px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid rgba(45, 212, 191, 0.4);
-  box-shadow: 0 0 25px rgba(45, 212, 191, 0.2);
+  border: 3px solid rgba(15, 118, 110, 0.3);
+  box-shadow: 0 4px 20px rgba(15, 118, 110, 0.15);
 }
 
 .about-avatar-img {
@@ -120,13 +124,13 @@
 .avatar-name {
   font-size: 16px;
   font-weight: 700;
-  color: #ffffff;
+  color: #111827;
 }
 
 .avatar-title {
   font-size: 12px;
   color: #ff9900;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 /* ==========================================================================
@@ -140,14 +144,14 @@
 }
 
 .resume-showcase-card {
-  background: linear-gradient(145deg, #18191d 0%, #1e2025 100%);
-  border: 1px solid rgba(45, 212, 191, 0.3);
+  background: #ffffff;
+  border: 1px solid rgba(15, 118, 110, 0.25);
   border-radius: 24px;
   padding: 36px;
   display: flex;
   flex-direction: column;
   gap: 28px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04);
 }
 
 .showcase-left {
@@ -158,9 +162,9 @@
 
 .showcase-badge {
   display: inline-block;
-  background: rgba(45, 212, 191, 0.15);
-  color: #2dd4bf;
-  border: 1px solid rgba(45, 212, 191, 0.3);
+  background: rgba(15, 118, 110, 0.1);
+  color: #0f766e;
+  border: 1px solid rgba(15, 118, 110, 0.25);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -172,12 +176,12 @@
 .showcase-left h2 {
   font-size: clamp(1.4rem, 2.5vw, 1.8rem);
   font-weight: 700;
-  color: #ffffff;
+  color: #111827;
 }
 
 .showcase-left p {
   font-size: 13.5px;
-  color: #9ca3af;
+  color: #4b5563;
   max-width: 800px;
 }
 
@@ -188,8 +192,8 @@
 }
 
 .showcase-track-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #f8f9fa;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 18px;
   padding: 22px;
   display: flex;
@@ -200,9 +204,10 @@
 }
 
 .showcase-track-card:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(45, 212, 191, 0.4);
+  background: #ffffff;
+  border-color: rgba(15, 118, 110, 0.4);
   transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
 }
 
 .track-card-header {
@@ -217,13 +222,13 @@
 
 .track-card-header h4 {
   font-size: 15px;
-  font-weight: 600;
-  color: #ffffff;
+  font-weight: 700;
+  color: #111827;
 }
 
 .showcase-track-card p {
   font-size: 12.5px;
-  color: #9ca3af;
+  color: #4b5563;
   line-height: 1.5;
   flex-grow: 1;
 }
@@ -242,22 +247,23 @@
   align-items: center;
   justify-content: center;
   transition: all 0.2s;
-  background: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid rgba(0, 0, 0, 0.12);
   flex: 1;
   text-align: center;
 }
 
 .btn-track-action:hover {
-  background: rgba(255, 255, 255, 0.16);
-  color: #2dd4bf;
+  background: #f1f2f4;
+  color: #0f766e;
 }
 
 .btn-track-action.primary {
   background: #0f766e;
+  color: #ffffff;
   border-color: transparent;
-  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.3);
+  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.25);
 }
 
 .btn-track-action.primary:hover {
@@ -266,7 +272,7 @@
 }
 
 /* ==========================================================================
-   ABOUT SECTIONS & CARDS
+   ABOUT SECTIONS & CARDS (Light Theme)
    ========================================================================== */
 
 .about-section {
@@ -282,14 +288,14 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   padding-bottom: 14px;
 }
 
 .section-heading {
   font-size: clamp(1.6rem, 2.8vw, 2.2rem);
   font-weight: 700;
-  color: #ffffff;
+  color: #111827;
 }
 
 /* AWS Certifications */
@@ -300,20 +306,21 @@
 }
 
 .cert-card {
-  background: #1c1d20;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 20px;
   padding: 32px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
   transition: all 0.3s ease;
 }
 
 .cert-card:hover {
   border-color: rgba(255, 153, 0, 0.4);
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
 }
 
 .cert-header {
@@ -343,7 +350,7 @@
 
 .cert-code {
   font-size: 12px;
-  color: #9ca3af;
+  color: #71717a;
   font-weight: 600;
   letter-spacing: 1px;
 }
@@ -351,12 +358,12 @@
 .cert-card h3 {
   font-size: 1.35rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #111827;
 }
 
 .cert-card p {
   font-size: 13.5px;
-  color: #9ca3af;
+  color: #4b5563;
   line-height: 1.6;
 }
 
@@ -370,7 +377,7 @@
 
 .cert-bullets li {
   font-size: 13px;
-  color: #d1d5db;
+  color: #374151;
   line-height: 1.5;
 }
 
@@ -382,13 +389,14 @@
 }
 
 .timeline-card {
-  background: #1c1d20;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 20px;
   padding: 30px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 .timeline-top {
@@ -401,19 +409,19 @@
 .timeline-top h3 {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #111827;
 }
 
 .timeline-top h4 {
   font-size: 13.5px;
-  color: #2dd4bf;
-  font-weight: 500;
+  color: #0f766e;
+  font-weight: 600;
   margin-top: 2px;
 }
 
 .timeline-badge {
-  background: rgba(255, 255, 255, 0.06);
-  color: #e5e7eb;
+  background: #f3f4f6;
+  color: #374151;
   padding: 4px 10px;
   border-radius: 12px;
   font-size: 11px;
@@ -431,7 +439,7 @@
 
 .timeline-bullets li {
   font-size: 13px;
-  color: #9ca3af;
+  color: #4b5563;
   line-height: 1.5;
 }
 
@@ -443,19 +451,20 @@
 }
 
 .skill-cat-card {
-  background: #1c1d20;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 18px;
   padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 .skill-cat-card h4 {
   font-size: 15px;
   font-weight: 700;
-  color: #ffffff;
+  color: #111827;
 }
 
 .skill-pill-wrap {
@@ -465,12 +474,13 @@
 }
 
 .skill-pill {
-  background: rgba(255, 255, 255, 0.05);
-  color: #e5e7eb;
+  background: #f3f4f6;
+  color: #374151;
   font-size: 12px;
   padding: 5px 11px;
   border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  font-weight: 500;
 }
 
 @media (max-width: 900px) {
@@ -491,7 +501,7 @@
   }
 
   .about-wrapper {
-    padding: 60px 5vw;
+    padding: 40px 5vw;
     gap: 50px;
   }
 }
