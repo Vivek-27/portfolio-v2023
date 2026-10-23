@@ -52,12 +52,12 @@
 
 /* Hero Section */
 .hero-section {
-  min-height: 85vh;
   width: 100%;
+  min-height: auto;
   padding: 0 6vw 24px 6vw;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   position: relative;
   background: #f8f9fa;
 }
@@ -65,18 +65,20 @@
 .hero-container {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
-  align-items: center;
+  align-items: start;
   gap: 36px;
   max-width: 1380px;
   margin: 0 auto;
   width: 100%;
+  padding-top: 0;
 }
 
 .hero-content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
   z-index: 10;
+  padding-top: 6px;
 }
 
 .hero-badge {
@@ -226,7 +228,7 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .hero-photo-wrapper {
@@ -234,7 +236,7 @@
   width: 100%;
   max-width: 580px;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: center;
 }
 
@@ -782,7 +784,7 @@
 
 @media (max-width: 600px) {
   .hero-section {
-    padding: 40px 5vw 20px 5vw;
+    padding: 12px 5vw 20px 5vw;
   }
 
   .about-intro-section,
