@@ -68,7 +68,7 @@
 .logo-author-hover {
   font-size: 11.5px;
   font-weight: 600;
-  color: #0f766e;
+  color: #2563eb;
   position: absolute;
   top: 100%;
   left: 0;
@@ -113,15 +113,15 @@
 }
 
 .nav-active-dot {
-  color: #0f766e;
+  color: #2563eb;
   font-size: 18px;
   line-height: 0;
 }
 
 .nav-resume-btn {
-  background: rgba(15, 118, 110, 0.08);
-  border: 1px solid rgba(15, 118, 110, 0.25);
-  color: #0f766e;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  color: #2563eb;
   padding: 8px 18px;
   border-radius: 30px;
   font-size: 13px;
@@ -131,7 +131,7 @@
 }
 
 .nav-resume-btn:hover {
-  background: rgba(15, 118, 110, 0.16);
+  background: rgba(37, 99, 235, 0.16);
   transform: translateY(-1px);
 }
 
@@ -315,9 +315,9 @@
 }
 
 .drawer-resume-pill {
-  background: rgba(15, 118, 110, 0.25);
-  border: 1px solid rgba(45, 212, 191, 0.4);
-  color: #2dd4bf;
+  background: rgba(37, 99, 235, 0.2);
+  border: 1px solid rgba(96, 165, 250, 0.4);
+  color: #60a5fa;
   padding: 14px 20px;
   border-radius: 30px;
   font-size: 14px;
@@ -356,7 +356,7 @@
 }
 
 .drawer-socials-links a:hover {
-  color: #2dd4bf;
+  color: #60a5fa;
 }
 
 @media (max-width: 860px) {

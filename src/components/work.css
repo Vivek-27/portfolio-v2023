@@ -33,14 +33,14 @@
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #0f766e;
+  color: #2563eb;
   text-transform: uppercase;
 }
 
 .work-resume-btn {
-  background: rgba(15, 118, 110, 0.08);
-  border: 1px solid rgba(15, 118, 110, 0.25);
-  color: #0f766e;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  color: #2563eb;
   padding: 8px 18px;
   border-radius: 30px;
   font-size: 13px;
@@ -50,7 +50,7 @@
 }
 
 .work-resume-btn:hover {
-  background: rgba(15, 118, 110, 0.16);
+  background: rgba(37, 99, 235, 0.16);
   transform: translateY(-2px);
 }
 
@@ -217,7 +217,7 @@
 }
 
 .project-card:hover {
-  border-color: rgba(15, 118, 110, 0.35);
+  border-color: rgba(37, 99, 235, 0.35);
   transform: translateY(-4px);
   box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
 }
@@ -238,9 +238,9 @@
 }
 
 .project-badge {
-  background: rgba(15, 118, 110, 0.1);
-  color: #0f766e;
-  border: 1px solid rgba(15, 118, 110, 0.25);
+  background: rgba(37, 99, 235, 0.08);
+  color: #2563eb;
+  border: 1px solid rgba(37, 99, 235, 0.25);
   font-size: 11px;
   font-weight: 700;
   padding: 3px 9px;
@@ -385,7 +385,7 @@
 }
 
 .btn-card-visit:hover {
-  background: #0f766e;
+  background: #2563eb;
   transform: translateY(-1px);
 }
 

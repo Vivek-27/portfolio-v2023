@@ -46,31 +46,32 @@
 
 .loader-progress {
   height: 100%;
-  background: #0f766e;
+  background: #2563eb;
   transition: width 0.15s ease-out;
 }
 
 /* Hero Section */
 .hero-section {
-  width: 100%;
-  min-height: auto;
-  padding: 0 6vw 24px 6vw;
+  background: #f8f9fa;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  min-height: auto;
+  padding: 0 7vw 24px;
   position: relative;
-  background: #f8f9fa;
+  width: 100%;
 }
 
 .hero-container {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 1.35fr 0.65fr;
   align-items: start;
   gap: 36px;
-  max-width: 1380px;
+  grid-gap: 36px;
   margin: 0 auto;
+  max-width: 1380px;
+  padding: 50px;
   width: 100%;
-  padding-top: 0;
 }
 
 .hero-content {
@@ -85,9 +86,9 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(15, 118, 110, 0.08);
-  border: 1px solid rgba(15, 118, 110, 0.25);
-  color: #0f766e;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  color: #2563eb;
   padding: 6px 14px;
   border-radius: 30px;
   font-size: 13px;
@@ -98,9 +99,9 @@
 .badge-dot {
   width: 8px;
   height: 8px;
-  background: #0f766e;
+  background: #2563eb;
   border-radius: 50%;
-  box-shadow: 0 0 8px rgba(15, 118, 110, 0.5);
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.5);
   animation: pulseDot 2s infinite ease-in-out;
 }
 
@@ -125,7 +126,7 @@
 .role-animated {
   font-size: clamp(1.15rem, 1.8vw, 1.55rem);
   font-weight: 700;
-  color: #0f766e;
+  color: #2563eb;
   letter-spacing: -0.3px;
   animation: roleSlide 0.5s ease-out;
 }
@@ -146,11 +147,11 @@
   font-weight: 700;
   line-height: 1.08;
   letter-spacing: -0.03em;
-  color: #111827;
+  color: #0f172a;
 }
 
 .text-highlight {
-  color: #0f766e;
+  color: #2563eb;
 }
 
 .hero-description {
@@ -253,7 +254,7 @@
   position: absolute;
   width: 340px;
   height: 340px;
-  background: radial-gradient(circle, rgba(15, 118, 110, 0.12) 0%, rgba(248, 249, 250, 0) 70%);
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, rgba(248, 249, 250, 0) 70%);
   top: 25%;
   z-index: 1;
   pointer-events: none;
@@ -296,10 +297,11 @@
 
 /* Scroll indicator */
 .hero-scroll-indicator {
+  grid-column: 1 / -1;
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 30px;
+  margin-top: 0;
   align-self: flex-start;
   color: #9ca3af;
   font-size: 11px;
@@ -337,7 +339,7 @@
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #0f766e;
+  color: #2563eb;
   text-transform: uppercase;
 }
 
@@ -345,7 +347,7 @@
   font-size: clamp(1.8rem, 3.2vw, 3rem);
   font-weight: 600;
   line-height: 1.25;
-  color: #111827;
+  color: #0f172a;
   max-width: 1050px;
   letter-spacing: -0.02em;
 }
@@ -406,7 +408,7 @@
 .btn-link-action {
   font-size: 14.5px;
   font-weight: 600;
-  color: #0f766e;
+  color: #2563eb;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -419,9 +421,9 @@
 }
 
 .btn-resume-inline {
-  background: rgba(15, 118, 110, 0.08);
-  border: 1px solid rgba(15, 118, 110, 0.25);
-  color: #0f766e;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  color: #2563eb;
   padding: 10px 20px;
   border-radius: 30px;
   font-size: 13.5px;
@@ -431,7 +433,7 @@
 }
 
 .btn-resume-inline:hover {
-  background: rgba(15, 118, 110, 0.16);
+  background: rgba(37, 99, 235, 0.16);
   transform: translateY(-2px);
 }
 
@@ -483,7 +485,7 @@
 }
 
 .featured-card:hover {
-  border-color: rgba(15, 118, 110, 0.3);
+  border-color: rgba(37, 99, 235, 0.3);
   transform: translateY(-5px);
   box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
 }
@@ -495,9 +497,9 @@
 }
 
 .card-badge {
-  background: rgba(15, 118, 110, 0.1);
-  color: #0f766e;
-  border: 1px solid rgba(15, 118, 110, 0.25);
+  background: rgba(37, 99, 235, 0.08);
+  color: #2563eb;
+  border: 1px solid rgba(37, 99, 235, 0.25);
   font-size: 11px;
   font-weight: 700;
   padding: 4px 10px;
@@ -560,7 +562,7 @@
 }
 
 .card-btn-live:hover {
-  background: #0f766e;
+  background: #2563eb;
 }
 
 .card-badge-live-service {
@@ -653,7 +655,7 @@
 }
 
 .footer-cta-heading .text-highlight {
-  color: #2dd4bf;
+  color: #60a5fa;
 }
 
 .footer-cta-buttons {
@@ -683,13 +685,13 @@
 }
 
 .footer-pill-btn.resume-btn {
-  background: #0f766e;
+  background: #2563eb;
   border-color: transparent;
-  box-shadow: 0 4px 16px rgba(15, 118, 110, 0.4);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
 }
 
 .footer-pill-btn.resume-btn:hover {
-  background: #115e59;
+  background: #1d4ed8;
 }
 
 .footer-cta-bottom {
@@ -734,7 +736,7 @@
 }
 
 .footer-social-links a:hover {
-  color: #2dd4bf;
+  color: #60a5fa;
   text-decoration: underline;
 }
 

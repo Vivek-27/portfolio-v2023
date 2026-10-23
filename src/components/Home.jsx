@@ -191,11 +191,11 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="hero-scroll-indicator">
-          <span>SCROLL</span>
-          <div className="scroll-line"></div>
+          <div className="hero-scroll-indicator">
+            <span>SCROLL</span>
+            <div className="scroll-line"></div>
+          </div>
         </div>
       </section>
 

@@ -60,9 +60,9 @@
 
 .resume-modal-pill {
   display: inline-block;
-  background: rgba(15, 118, 110, 0.25);
-  color: #2dd4bf;
-  border: 1px solid rgba(45, 212, 191, 0.3);
+  background: rgba(37, 99, 235, 0.25);
+  color: #60a5fa;
+  border: 1px solid rgba(96, 165, 250, 0.3);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -126,7 +126,7 @@
 .resume-track-item:hover,
 .resume-track-item.active {
   background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(45, 212, 191, 0.4);
+  border-color: rgba(96, 165, 250, 0.4);
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
@@ -166,7 +166,7 @@
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.5px;
-  color: #2dd4bf;
+  color: #60a5fa;
 }
 
 .track-badge {
@@ -218,18 +218,18 @@
 
 .track-btn-view:hover {
   background: rgba(255, 255, 255, 0.16);
-  color: #2dd4bf;
+  color: #60a5fa;
 }
 
 .track-btn-download {
-  background: #0f766e;
+  background: #2563eb;
   color: #ffffff;
   border: 1px solid transparent;
-  box-shadow: 0 4px 14px rgba(15, 118, 110, 0.4);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
 }
 
 .track-btn-download:hover {
-  background: #115e59;
+  background: #1d4ed8;
   transform: translateY(-1px);
 }
 
@@ -242,7 +242,7 @@
 }
 
 .resume-modal-footer a {
-  color: #2dd4bf;
+  color: #60a5fa;
   text-decoration: underline;
 }
 
