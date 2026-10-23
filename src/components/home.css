@@ -46,7 +46,7 @@
 
 .loader-progress {
   height: 100%;
-  background: #2563eb;
+  background: #12388d;
   transition: width 0.15s ease-out;
 }
 
@@ -86,9 +86,9 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(37, 99, 235, 0.08);
-  border: 1px solid rgba(37, 99, 235, 0.25);
-  color: #2563eb;
+  background: rgba(18, 56, 141, 0.08);
+  border: 1px solid rgba(18, 56, 141, 0.25);
+  color: #12388d;
   padding: 6px 14px;
   border-radius: 30px;
   font-size: 13px;
@@ -99,9 +99,9 @@
 .badge-dot {
   width: 8px;
   height: 8px;
-  background: #2563eb;
+  background: #12388d;
   border-radius: 50%;
-  box-shadow: 0 0 8px rgba(37, 99, 235, 0.5);
+  box-shadow: 0 0 8px rgba(18, 56, 141, 0.5);
   animation: pulseDot 2s infinite ease-in-out;
 }
 
@@ -126,7 +126,7 @@
 .role-animated {
   font-size: clamp(1.15rem, 1.8vw, 1.55rem);
   font-weight: 700;
-  color: #2563eb;
+  color: #12388d;
   letter-spacing: -0.3px;
   animation: roleSlide 0.5s ease-out;
 }
@@ -151,7 +151,7 @@
 }
 
 .text-highlight {
-  color: #2563eb;
+  color: #12388d;
 }
 
 .hero-description {
@@ -254,7 +254,7 @@
   position: absolute;
   width: 340px;
   height: 340px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, rgba(248, 249, 250, 0) 70%);
+  background: radial-gradient(circle, rgba(18, 56, 141, 0.12) 0%, rgba(248, 249, 250, 0) 70%);
   top: 25%;
   z-index: 1;
   pointer-events: none;
@@ -339,7 +339,7 @@
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #2563eb;
+  color: #12388d;
   text-transform: uppercase;
 }
 
@@ -408,7 +408,7 @@
 .btn-link-action {
   font-size: 14.5px;
   font-weight: 600;
-  color: #2563eb;
+  color: #12388d;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -421,9 +421,9 @@
 }
 
 .btn-resume-inline {
-  background: rgba(37, 99, 235, 0.08);
-  border: 1px solid rgba(37, 99, 235, 0.25);
-  color: #2563eb;
+  background: rgba(18, 56, 141, 0.08);
+  border: 1px solid rgba(18, 56, 141, 0.25);
+  color: #12388d;
   padding: 10px 20px;
   border-radius: 30px;
   font-size: 13.5px;
@@ -433,7 +433,7 @@
 }
 
 .btn-resume-inline:hover {
-  background: rgba(37, 99, 235, 0.16);
+  background: rgba(18, 56, 141, 0.16);
   transform: translateY(-2px);
 }
 
@@ -485,7 +485,7 @@
 }
 
 .featured-card:hover {
-  border-color: rgba(37, 99, 235, 0.3);
+  border-color: rgba(18, 56, 141, 0.3);
   transform: translateY(-5px);
   box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
 }
@@ -497,9 +497,9 @@
 }
 
 .card-badge {
-  background: rgba(37, 99, 235, 0.08);
-  color: #2563eb;
-  border: 1px solid rgba(37, 99, 235, 0.25);
+  background: rgba(18, 56, 141, 0.08);
+  color: #12388d;
+  border: 1px solid rgba(18, 56, 141, 0.25);
   font-size: 11px;
   font-weight: 700;
   padding: 4px 10px;
@@ -562,7 +562,7 @@
 }
 
 .card-btn-live:hover {
-  background: #2563eb;
+  background: #12388d;
 }
 
 .card-badge-live-service {
@@ -685,13 +685,13 @@
 }
 
 .footer-pill-btn.resume-btn {
-  background: #2563eb;
+  background: #12388d;
   border-color: transparent;
-  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 4px 16px rgba(18, 56, 141, 0.4);
 }
 
 .footer-pill-btn.resume-btn:hover {
-  background: #1d4ed8;
+  background: #0c2661;
 }
 
 .footer-cta-bottom {
