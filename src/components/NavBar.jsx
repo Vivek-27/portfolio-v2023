@@ -81,10 +81,9 @@ const NavBar = () => {
             <div className="socials">
               <p>SOCIALS</p>
               <ul>
-                <a>Awwwwards</a>
-                <a>Instagram</a>
-                <a>GitHub</a>
-                <a>LinkedIn</a>
+                <a href="https://github.com/Vivek-27" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/vivek-fullstack/" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a href="https://www.instagram.com/vivekumar27_/" target="_blank" rel="noreferrer">Instagram</a>
               </ul>
             </div>
           </div>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import transition from '../transition';
 import { motion } from 'framer-motion';
 import './work.css';
 import { gsap } from 'gsap';
@@ -14,7 +13,6 @@ const Work = () => {
   });
   const [liveBtnStyle, setLiveBtnStyle] = useState({});
   const [devBtnStyle, setDevBtnStyle] = useState({});
-  const [imgIndex, setImgIndex] = useState(0);
   const imagesFlipkartProj = [
     { url: require('../images/flipkartProject/p1.png') },
     { url: require('../images/flipkartProject/p2.png') },
@@ -193,6 +191,132 @@ const Work = () => {
           </div>
         </div>
         <div className="projects">
+          {/* Oxima Ride Hailing */}
+          <div className="project1 item oxima-ride-hailing">
+            <div className="left-text">
+              <h5>Oxima: Real-Time Fleet & Ride-Hailing Platform ⭐</h5>
+              <p>
+                Enterprise-grade nationwide ride-hailing system built with Node.js, React 18, Redis Geospatial driver tracking, Apache Kafka telemetry streaming, and OSRM turn-by-turn road navigation.
+              </p>
+              <div className="end">
+                <span>
+                  <p>Key Highlights —</p>
+                  <ul>
+                    <li>Redis Spatial GEO driver tracking</li>
+                    <li>Apache Kafka telemetry event streaming</li>
+                    <li>OSRM turn-by-turn road routing</li>
+                    <li>20-meter proximity PIN-lock verification</li>
+                    <li>City surge pricing with automated TTL</li>
+                  </ul>
+                </span>
+                <div className="links">
+                  <a
+                    style={{ color: 'orange' }}
+                    href="https://github.com/Vivek-27/oxima-ride-hailing"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    View Code
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* AWS Cloud Deployment */}
+          <div className="project1 item project-even aws-ticketdesk">
+            <div className="left-text">
+              <h5>AWS Cloud Deployment (TicketDesk) ☁️</h5>
+              <p>
+                Production AWS deployment POC implementing Terraform Infrastructure-as-Code, containerized FastAPI on ECS Fargate behind an ALB, private RDS PostgreSQL, S3 presigned uploads, and GitHub Actions OIDC CI/CD.
+              </p>
+              <div className="end">
+                <span>
+                  <p>Key Highlights —</p>
+                  <ul>
+                    <li>AWS ECS Fargate & Application Load Balancer</li>
+                    <li>Multi-AZ RDS PostgreSQL in private subnets</li>
+                    <li>S3 Event-driven Lambda thumbnail generation</li>
+                    <li>Terraform IaC (zero-to-production automation)</li>
+                    <li>GitHub Actions CI/CD with AWS OIDC authentication</li>
+                  </ul>
+                </span>
+                <div className="links">
+                  <a
+                    style={{ color: 'orange' }}
+                    href="https://github.com/Vivek-27/poc-aws-deployment-ticketdesk"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    View Code
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Generative AI Toolkit */}
+          <div className="project1 item genai-toolkit">
+            <div className="left-text">
+              <h5>Generative AI & LangChain LCEL Architecture Toolkit 🤖</h5>
+              <p>
+                Comprehensive hands-on Generative AI engineering toolkit demonstrating modern LangChain Expression Language (LCEL) Runnables, parallel chains, Pydantic structured outputs, and RAG document ingestion pipelines.
+              </p>
+              <div className="end">
+                <span>
+                  <p>Key Highlights —</p>
+                  <ul>
+                    <li>LCEL Runnables (Sequence, Parallel, Passthrough)</li>
+                    <li>Pydantic schemas & structured JSON enforcement</li>
+                    <li>Multi-source RAG loaders (Directory, Web, Lazy loading)</li>
+                    <li>OpenAI GPT-4o & HuggingFace Hub integrations</li>
+                  </ul>
+                </span>
+                <div className="links">
+                  <a
+                    style={{ color: 'orange' }}
+                    href="https://github.com/Vivek-27/generative-ai-langchain-toolkit"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    View Code
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Presentation Attack Detection */}
+          <div className="project1 item project-even pad-deepfake">
+            <div className="left-text">
+              <h5>Presentation Attack Detection (PAD) Deepfake API 🧠</h5>
+              <p>
+                Computer vision deep learning microservice for biometric anti-spoofing and deepfake detection. Built with PyTorch (fine-tuned ResNet-18) and Flask RESTful API.
+              </p>
+              <div className="end">
+                <span>
+                  <p>Key Highlights —</p>
+                  <ul>
+                    <li>Fine-tuned ResNet-18 convolutional neural network</li>
+                    <li>Real vs. spoof binary image classification</li>
+                    <li>Low-latency evaluation mode with Softmax scoring</li>
+                    <li>RESTful Flask inference microservice</li>
+                  </ul>
+                </span>
+                <div className="links">
+                  <a
+                    style={{ color: 'orange' }}
+                    href="https://github.com/Vivek-27/deepfake-detection-pad-api"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    View Code
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="project1 item instagram-clone">
             <div className="left-text">
               <h5>Instagram Clone </h5>
@@ -227,12 +351,14 @@ const Work = () => {
                     style={{ color: 'orange' }}
                     href="https://instagram-cc.vercel.app/"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Visit
                   </a>
                   <a
-                    href="https://github.com/Vivek-27/SocialMediaApp"
+                    href="https://github.com/Vivek-27/instagram-mern-clone"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     View Code
                   </a>
@@ -297,12 +423,14 @@ const Work = () => {
                     style={{ color: 'orange' }}
                     href="https://flipkart-com-cl.netlify.app/"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Visit
                   </a>
                   <a
-                    href="https://github.com/Vivek-27/Flipkart-Clone.git"
+                    href="https://github.com/Vivek-27/flipkart-ecommerce-clone"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     View Code
                   </a>
@@ -316,9 +444,8 @@ const Work = () => {
               <h5>Snake Water Gun Game⭐</h5>
               <p>
                 Multiplayer online game, can play with friends or with
-                strangers. Integerated Socket.io technology to adress smooth
-                game experience.(please wait for at least 2min for server to run
-                as I am using free ver.)
+                strangers. Integrated Socket.io technology to address smooth
+                game experience.
               </p>
               <div className="end">
                 <span>
@@ -333,12 +460,14 @@ const Work = () => {
                     style={{ color: 'orange' }}
                     href="https://snake-water-gun-2aot.onrender.com/"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Visit
                   </a>
                   <a
-                    href="https://github.com/Vivek-27/Snake_Water_Gun.git"
+                    href="https://github.com/Vivek-27/snake-water-gun-multiplayer"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     View Code
                   </a>
@@ -389,14 +518,16 @@ const Work = () => {
                 <div className="links">
                   <a
                     style={{ color: 'orange' }}
-                    href="https://relaxed-kangaroo-454bb5.netlify.app/"
+                    href="https://task-management-app-frontend-i5ab.onrender.com"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Visit
                   </a>
                   <a
-                    href="https://github.com/Vivek-27/TaskManager"
+                    href="https://github.com/Vivek-27/taskflow-mern-app"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     View Code
                   </a>
@@ -423,10 +554,19 @@ const Work = () => {
                   </ul>
                 </span>
                 <div className="links">
-                  <a style={{ color: 'orange' }} href="" target="_blank">
+                  <a
+                    style={{ color: 'orange' }}
+                    href="https://github.com/Vivek-27"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     Visit
                   </a>
-                  <a href="https://github.com/Vivek-27/Youtube" target="_blank">
+                  <a
+                    href="https://github.com/Vivek-27"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     View Code
                   </a>
                 </div>
@@ -474,24 +614,19 @@ const Work = () => {
                 animations.
               </p>
               <div className="end">
-                {/* <span>
-                  <p>Features —</p>
-                  <ul>
-                    <li>Apple</li>
-                    <li>Provides file sharable link.</li>
-                  </ul>
-                </span> */}
                 <div className="links">
                   <a
                     style={{ color: 'orange' }}
                     href="https://visionapple.netlify.app/"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Visit
                   </a>
                   <a
-                    href="https://github.com/Vivek-27/Apple-Vision-Web"
+                    href="https://github.com/Vivek-27/apple-vision-pro-showcase"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     View Code
                   </a>
@@ -520,12 +655,14 @@ const Work = () => {
                     style={{ color: 'orange' }}
                     href="https://parallax-landing-page23.netlify.app/"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Visit
                   </a>
                   <a
-                    href="https://github.com/Vivek-27/Parallax-Landing-Page"
+                    href="https://github.com/Vivek-27/parallax-landing-showcase"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     View Code
                   </a>
@@ -572,12 +709,14 @@ const Work = () => {
                     style={{ color: 'orange' }}
                     href="https://filesharingonline.netlify.app/"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Visit
                   </a>
                   <a
-                    href="https://github.com/Vivek-27/FileSharingOnline"
+                    href="https://github.com/Vivek-27/secure-file-share-web"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     View Code
                   </a>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import transition from '../transition';
 import { motion } from 'framer-motion';
 import portrate from '../images/portrate/Layer 1.png';
 import './home.css';
@@ -10,7 +9,7 @@ import Work from './Work';
 import { Link } from 'react-router-dom';
 const Home = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const text = ['Developer', 'FullStack', 'Power'];
+  const text = ['Full-Stack Engineer', 'AWS Certified', 'Generative AI', 'Distributed Systems'];
   const currTime = new Date().toTimeString();
 
   useEffect(() => {
@@ -21,6 +20,7 @@ const Home = () => {
         setCurrentTextIndex(0);
       }
     }, 5000);
+    return () => clearTimeout(timer);
   }, [currentTextIndex, text.length]);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -145,14 +145,12 @@ const Home = () => {
 
       <div id="page2">
         <h4>
-          I'm a Computer Science Engineering Student, experience in coding
-          programs and web development. <br /> In-depth knowledge of
-          <span> OOPs concept and JAVA Programming. </span> Working experience
-          in web development and deployment in JavaScript environment.
+          I'm a Full-Stack Software Engineer & AWS Certified Developer / Data Engineer. <br /> In-depth expertise in
+          <span> Distributed Architectures, Generative AI (LangChain & LCEL), and Cloud Systems. </span> Hands-on experience
+          designing real-time event-driven platforms and resilient microservices.
         </h4>
         <p>
-          Experience in JAVA, HTML, CSS, JavaScript, Linux, Windows, React JS,
-          Node JS, Express JS, MongoDB, Adobe Photoshop, etc...
+          Specialized in React, Next.js, Node.js, TypeScript, Python, AWS (ECS Fargate, Lambda, RDS, S3), Redis Geospatial, Apache Kafka, Docker, and PyTorch.
         </p>
       </div>
 
@@ -195,7 +193,7 @@ const Home = () => {
           <div className="left">
             <div className="ver">
               <p>VERSION</p>
-              <span>2023©Edition</span>
+              <span>2024©Edition</span>
             </div>
             <div className="ver">
               <p>LOCAL TIME</p>
@@ -205,18 +203,18 @@ const Home = () => {
           <div className="right">
             <p>SOCIALS</p>
             <ul>
-              <a href="/">Awwwwards</a>
-              <a href="https://www.instagram.com/vivekumar27_/" target="_blank">
-                Instagram
-              </a>
-              <a href="https://github.com/Vivek-27" target="_blank">
+              <a href="https://github.com/Vivek-27" target="_blank" rel="noreferrer">
                 GitHub
               </a>
               <a
-                href="https://www.linkedin.com/in/vivek-kumar-8b8a0b246/"
+                href="https://www.linkedin.com/in/vivek-fullstack/"
                 target="_blank"
+                rel="noreferrer"
               >
                 LinkedIn
+              </a>
+              <a href="https://www.instagram.com/vivekumar27_/" target="_blank" rel="noreferrer">
+                Instagram
               </a>
             </ul>
           </div>
