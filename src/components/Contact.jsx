@@ -102,7 +102,7 @@ const Contact = () => {
                   <div className="touchpoint-icon">📍</div>
                   <div className="touchpoint-info">
                     <span className="touchpoint-label">CURRENT LOCATION</span>
-                    <span className="touchpoint-val">Noida, Uttar Pradesh, India</span>
+                    <span className="touchpoint-val">Lohaghat, Uttarakhand, India</span>
                   </div>
                   <span className="touchpoint-badge">Remote / Hybrid</span>
                 </div>

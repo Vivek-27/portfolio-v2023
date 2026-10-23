@@ -12,24 +12,66 @@ import projectLanding from '../images/project_landing_page.png';
 
 const PROJECTS_DATA = [
   {
-    id: 'oxima',
-    title: 'Oxima: Real-Time Fleet & Ride-Hailing Platform',
-    category: 'fullstack',
-    categoryLabel: 'Full-Stack & Distributed',
-    badge: 'Flagship ⭐',
-    desc: 'Distributed nationwide ride-hailing architecture with customer & driver portals, live GPS tracking, and OSRM turn-by-turn road navigation. Engineered sub-50ms driver matching via Redis Geospatial indexing and decoupled event queuing via Apache Kafka.',
+    id: 'oxima-backend-java',
+    title: 'Oxima: Distributed Ride-Hailing Backend Microservice (Java 17 & Spring Boot)',
+    category: 'backend',
+    categoryLabel: 'Java Microservices & Cloud',
+    badge: 'Live Backend ⭐',
+    liveBadgeLabel: 'LIVE BACKEND',
+    desc: 'High-throughput, production distributed backend for ride-hailing services. Engineered with Java 17 and Spring Boot 3, featuring Redis Geospatial (GEOADD / GEORADIUS) driver matching, Apache Kafka decoupled event streaming, WebSockets for real-time driver telematics, and PostgreSQL persistence in Docker.',
     highlights: [
-      'Sub-50ms driver-rider proximity matching with Redis GEO commands',
-      'Apache Kafka event streaming with partition keys for ride events',
-      'OpenStreetMap OSRM road routing engine integration',
-      '20-meter proximity PIN-lock ride initiation security',
-      'Zustand state management & responsive mobile-first Tailwind UI'
+      'Sub-50ms driver-passenger geospatial proximity indexing using Redis GEO commands',
+      'Distributed event streaming via Apache Kafka for ride lifecycle and status events',
+      'Bi-directional low-latency driver GPS telemetry with Spring WebSockets / STOMP',
+      'Multi-container containerized architecture with Docker Compose and PostgreSQL',
+      'Production backend service actively handling client requests'
     ],
-    tech: ['React 18', 'Node.js', 'Express', 'Redis Spatial', 'Kafka', 'WebSockets', 'Tailwind CSS'],
-    liveUrl: 'https://oximacustomer.netlify.app/',
-    githubUrl: 'https://github.com/Vivek-27/oxima-ride-hailing',
+    tech: ['Java 17', 'Spring Boot 3', 'Redis Geospatial', 'Apache Kafka', 'WebSockets', 'PostgreSQL', 'Docker'],
+    liveUrl: null,
+    githubUrl: 'https://github.com/Vivek-27/oxima-backend-java',
     image: null,
     isLive: true
+  },
+  {
+    id: 'oxima-frontend-web',
+    title: 'Oxima: Dual Ride-Hailing Client Portals (React 18 & Zustand)',
+    category: 'fullstack',
+    categoryLabel: 'Frontend Web & Maps',
+    badge: 'React & Maps 🗺️',
+    liveBadgeLabel: 'LIVE WEB APP',
+    desc: 'High-performance responsive web portals for riders (front-customer) and drivers (front-driver). Integrates OpenStreetMap with OSRM road routing engine, live animated vehicle tracking, Zustand global state management, and OTP-based ride verification.',
+    highlights: [
+      'Dual client portals: dedicated rider booking interface and driver ride management console',
+      'OpenStreetMap & OSRM routing engine with real-time road geometry and dynamic ETA computation',
+      'Smooth vehicle trajectory animation and 20-meter proximity PIN-verification security',
+      'Zustand lightweight reactive state management eliminating unnecessary re-renders',
+      'Fully responsive, mobile-first design styled with modern Tailwind CSS'
+    ],
+    tech: ['React 18', 'Zustand', 'Tailwind CSS', 'OSRM Routing', 'OpenStreetMap', 'WebSockets'],
+    liveUrl: 'https://oximacustomer.netlify.app/',
+    githubUrl: 'https://github.com/Vivek-27/oxima-frontend-web',
+    image: null,
+    isLive: true
+  },
+  {
+    id: 'oxima-ride-hailing-mern',
+    title: 'Oxima: Real-Time Fleet & Ride-Hailing Platform (MERN Stack)',
+    category: 'fullstack',
+    categoryLabel: 'Full-Stack MERN Architecture',
+    badge: 'MERN Stack 🚖',
+    liveBadgeLabel: null,
+    desc: 'Full-stack JavaScript ride-hailing architecture built with Node.js, Express, MongoDB, and React. Demonstrates end-to-end socket event synchronization, Redis caching, driver dispatch algorithms, and JWT authentication.',
+    highlights: [
+      'End-to-end JavaScript architecture with Node.js, Express, and MongoDB',
+      'Real-time bi-directional ride status updates and chat via Socket.IO',
+      'Geospatial driver proximity queries and trip pricing calculation engine',
+      'JWT token authentication with role-based access control (Riders / Drivers)'
+    ],
+    tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Redis', 'Socket.IO'],
+    liveUrl: null,
+    githubUrl: 'https://github.com/Vivek-27/oxima-ride-hailing',
+    image: null,
+    isLive: false
   },
   {
     id: 'aws-ticketdesk',
@@ -367,7 +409,7 @@ const Work = () => {
                     </div>
                     {project.isLive && (
                       <span className="live-status-pill">
-                        <span className="live-dot"></span> LIVE APP
+                        <span className="live-dot"></span> {project.liveBadgeLabel || 'LIVE APP'}
                       </span>
                     )}
                   </div>
@@ -417,6 +459,11 @@ const Work = () => {
                       >
                         Visit App ↗
                       </a>
+                    )}
+                    {project.isLive && !project.liveUrl && (
+                      <span className="btn-card-live-service">
+                        <span className="live-dot"></span> Live Microservice
+                      </span>
                     )}
                     <a
                       href={project.githubUrl}

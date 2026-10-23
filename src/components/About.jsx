@@ -188,7 +188,7 @@ const About = () => {
               </div>
               <ul className="timeline-bullets">
                 <li>Rigorous coursework in Data Structures &amp; Algorithms, Operating Systems, Database Management Systems, and Distributed Computing.</li>
-                <li>Published open-source projects including real-time ride hailing (Oxima) and facial anti-spoofing microservices (PAD).</li>
+                <li>Architected open-source distributed systems including the Oxima real-time ride-hailing suite (Java 17 microservice backend &amp; React 18 client portals) and facial anti-spoofing microservices (PAD).</li>
               </ul>
             </div>
           </div>

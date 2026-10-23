@@ -19,13 +19,24 @@ const ROLES = [
 
 const FEATURED_PROJECTS = [
   {
-    title: 'Oxima Ride-Hailing Platform',
-    category: 'Distributed Systems & Real-Time',
-    desc: 'High-throughput ride-matching platform featuring Redis Geospatial indexing, Apache Kafka event streaming, and OpenStreetMap road routing with sub-50ms proximity dispatch.',
-    tech: ['React 18', 'Node.js', 'Redis Spatial', 'Kafka', 'WebSockets', 'Tailwind'],
-    github: 'https://github.com/Vivek-27/oxima-ride-hailing',
+    title: 'Oxima: Distributed Ride-Hailing Backend',
+    category: 'Java 17 & Spring Boot (Live Backend)',
+    desc: 'Production live backend microservice powered by Java 17, Spring Boot 3, Redis Geospatial (GEOADD / GEORADIUS) driver matching, Apache Kafka event streaming, and WebSocket driver telematics.',
+    tech: ['Java 17', 'Spring Boot', 'Redis Spatial', 'Kafka', 'WebSockets', 'PostgreSQL'],
+    github: 'https://github.com/Vivek-27/oxima-backend-java',
+    live: null,
+    badge: 'Live Backend ⭐',
+    isLiveBackend: true
+  },
+  {
+    title: 'Oxima: Ride-Hailing Client Portals',
+    category: 'Frontend Web & Interactive Maps',
+    desc: 'Dual client portals for riders and drivers featuring OpenStreetMap OSRM road routing engine, live animated driver location tracking, Zustand reactive state management, and mobile-first Tailwind design.',
+    tech: ['React 18', 'Zustand', 'Tailwind CSS', 'OSRM Routing', 'WebSockets'],
+    github: 'https://github.com/Vivek-27/oxima-frontend-web',
     live: 'https://oximacustomer.netlify.app/',
-    badge: 'Flagship'
+    badge: 'Live Web Demo 🌐',
+    isLiveBackend: false
   },
   {
     title: 'AWS ECS Fargate TicketDesk',
@@ -34,7 +45,8 @@ const FEATURED_PROJECTS = [
     tech: ['AWS ECS Fargate', 'Terraform', 'PostgreSQL', 'Docker', 'GitHub Actions'],
     github: 'https://github.com/Vivek-27/poc-aws-deployment-ticketdesk',
     live: null,
-    badge: 'AWS IaC'
+    badge: 'AWS IaC ☁️',
+    isLiveBackend: false
   },
   {
     title: 'Generative AI & LangChain Toolkit',
@@ -43,7 +55,8 @@ const FEATURED_PROJECTS = [
     tech: ['Python', 'LangChain', 'LCEL', 'OpenAI API', 'ChromaDB', 'FastAPI'],
     github: 'https://github.com/Vivek-27/generative-ai-langchain-toolkit',
     live: null,
-    badge: 'GenAI'
+    badge: 'GenAI 🤖',
+    isLiveBackend: false
   }
 ];
 
@@ -267,6 +280,11 @@ const Home = () => {
                     Live Demo &rarr;
                   </a>
                 )}
+                {proj.isLiveBackend && (
+                  <span className="card-badge-live-service">
+                    <span className="live-dot-pulse"></span> Live Microservice
+                  </span>
+                )}
                 <a
                   href={proj.github}
                   target="_blank"
@@ -322,7 +340,7 @@ const Home = () => {
 
             <div className="footer-meta-col">
               <span className="footer-meta-label">LOCAL TIME</span>
-              <span className="footer-meta-val">{currentTime || 'New Delhi, India'}</span>
+              <span className="footer-meta-val">{currentTime || 'Lohaghat, Uttarakhand'}</span>
             </div>
 
             <div className="footer-meta-col">

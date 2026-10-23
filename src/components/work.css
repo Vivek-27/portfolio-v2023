@@ -389,6 +389,19 @@
   transform: translateY(-1px);
 }
 
+.btn-card-live-service {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 12.5px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .btn-card-github {
   color: #4b5563;
   font-size: 13px;
