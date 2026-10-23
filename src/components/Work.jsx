@@ -1,732 +1,441 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import ResumeModal from './ResumeModal';
 import './work.css';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
-import SimpleImageSlider from 'react-simple-image-slider';
+
+// Project Images
+import projectVision from '../images/project_vision.png';
+import projectFileShare from '../images/project_fileShare.png';
+import projectInstagram from '../images/project_instagram.png';
+import projectSnakeWaterGun from '../images/project_snake_water_gun.png';
+import projectYoutube from '../images/project_youtube.png';
+import projectLanding from '../images/project_landing_page.png';
+
+const PROJECTS_DATA = [
+  {
+    id: 'oxima',
+    title: 'Oxima: Real-Time Fleet & Ride-Hailing Platform',
+    category: 'fullstack',
+    categoryLabel: 'Full-Stack & Distributed',
+    badge: 'Flagship ⭐',
+    desc: 'Distributed nationwide ride-hailing architecture with customer & driver portals, live GPS tracking, and OSRM turn-by-turn road navigation. Engineered sub-50ms driver matching via Redis Geospatial indexing and decoupled event queuing via Apache Kafka.',
+    highlights: [
+      'Sub-50ms driver-rider proximity matching with Redis GEO commands',
+      'Apache Kafka event streaming with partition keys for ride events',
+      'OpenStreetMap OSRM road routing engine integration',
+      '20-meter proximity PIN-lock ride initiation security',
+      'Zustand state management & responsive mobile-first Tailwind UI'
+    ],
+    tech: ['React 18', 'Node.js', 'Express', 'Redis Spatial', 'Kafka', 'WebSockets', 'Tailwind CSS'],
+    liveUrl: 'https://oximacustomer.netlify.app/',
+    githubUrl: 'https://github.com/Vivek-27/oxima-ride-hailing',
+    image: null,
+    isLive: true
+  },
+  {
+    id: 'aws-ticketdesk',
+    title: 'AWS ECS Fargate TicketDesk Cloud Infrastructure',
+    category: 'backend',
+    categoryLabel: 'Cloud & Infrastructure',
+    badge: 'AWS IaC ☁️',
+    desc: 'Production-ready AWS infrastructure POC designed with Terraform (IaC). Provisions custom VPC, multi-AZ subnets, Application Load Balancers, containerized FastAPI on ECS Fargate, private RDS PostgreSQL, and GitHub Actions OIDC CI/CD.',
+    highlights: [
+      'Terraform Infrastructure-as-Code for zero-touch cloud deployments',
+      'AWS ECS Fargate serverless containers with automated auto-scaling',
+      'Multi-AZ RDS PostgreSQL with connection pooling in private subnets',
+      'Automated GitHub Actions CI/CD with AWS OIDC authentication',
+      'CloudWatch metrics and synthetic alarms for uptime monitoring'
+    ],
+    tech: ['AWS ECS Fargate', 'Terraform', 'FastAPI', 'PostgreSQL', 'Docker', 'GitHub Actions'],
+    liveUrl: null,
+    githubUrl: 'https://github.com/Vivek-27/poc-aws-deployment-ticketdesk',
+    image: null,
+    isLive: false
+  },
+  {
+    id: 'genai-toolkit',
+    title: 'Generative AI & LangChain LCEL Architecture Toolkit',
+    category: 'data_ai',
+    categoryLabel: 'Generative AI & LLMs',
+    badge: 'GenAI 🤖',
+    desc: 'Extensible production-grade Generative AI framework showcasing modern LangChain Expression Language (LCEL), multi-agent orchestration, structured Pydantic schemas, and semantic RAG retrieval.',
+    highlights: [
+      'LCEL Runnables (RunnableSequence, RunnableParallel, Passthrough)',
+      'Enterprise RAG pipeline with ChromaDB vector store & semantic chunking',
+      'Guaranteed JSON validation using Pydantic structured output parsers',
+      'Dockerized low-latency FastAPI endpoints with streaming token delivery'
+    ],
+    tech: ['Python', 'LangChain', 'LangGraph', 'LCEL', 'OpenAI GPT-4o', 'ChromaDB', 'FastAPI'],
+    liveUrl: null,
+    githubUrl: 'https://github.com/Vivek-27/generative-ai-langchain-toolkit',
+    image: null,
+    isLive: false
+  },
+  {
+    id: 'banking-fraud',
+    title: 'Real-Time Banking Fraud Detection Streaming Pipeline',
+    category: 'data_ai',
+    categoryLabel: 'Big Data & Streaming',
+    badge: 'Streaming Data 📊',
+    desc: 'High-throughput financial fraud detection pipeline built with Apache Kafka, PySpark Structured Streaming, and Medallion Architecture on Delta Lake. Flags suspicious transaction velocity patterns in sub-second latency.',
+    highlights: [
+      'Kafka distributed streaming ingestion with Dockerized broker cluster',
+      'Medallion Architecture: Bronze (Raw) -> Silver (Deduplicated) -> Gold (Scored)',
+      'PySpark Structured Streaming with stateful windowed aggregations',
+      'Automated quarantine logging for corrupt/anomalous records'
+    ],
+    tech: ['Apache Kafka', 'PySpark', 'Delta Lake', 'Docker Compose', 'Python', 'PostgreSQL'],
+    liveUrl: null,
+    githubUrl: 'https://github.com/Vivek-27',
+    image: null,
+    isLive: false
+  },
+  {
+    id: 'pad-deepfake',
+    title: 'Deepfake & Face Presentation Attack Detection (PAD) API',
+    category: 'data_ai',
+    categoryLabel: 'Machine Learning / CV',
+    badge: 'Deep Learning 🧠',
+    desc: 'Biometric security computer vision service trained to detect spoof attacks (printed photos, digital replays, 3D masks) versus genuine facial presentations using a fine-tuned ResNet-18 model.',
+    highlights: [
+      'Fine-tuned PyTorch ResNet-18 deep convolutional architecture',
+      'Real vs. spoof binary image classification with Softmax scoring',
+      'Optimized image preprocessing pipeline with OpenCV',
+      'RESTful Flask inference microservice packaged in Docker'
+    ],
+    tech: ['PyTorch', 'ResNet-18', 'OpenCV', 'FastAPI', 'Docker', 'Python'],
+    liveUrl: null,
+    githubUrl: 'https://github.com/Vivek-27/deepfake-detection-pad-api',
+    image: null,
+    isLive: false
+  },
+  {
+    id: 'instagram-clone',
+    title: 'Instagram Full-Stack Platform',
+    category: 'fullstack',
+    categoryLabel: 'Full-Stack MERN',
+    badge: 'MERN Stack',
+    desc: 'Full-featured social media platform with user authentication, photo feeds, profile management, following/followers graph, and instant post reactions.',
+    highlights: [
+      'JWT token-based stateless authentication & session handling',
+      'Multi-image uploads with responsive grid rendering',
+      'Live comment and like interactions powered by Node.js/MongoDB',
+      'Deployed on Vercel with responsive mobile-ready interface'
+    ],
+    tech: ['React.js', 'Node.js', 'Express', 'MongoDB', 'Cloudinary', 'JWT'],
+    liveUrl: 'https://instagram-cc.vercel.app/',
+    githubUrl: 'https://github.com/Vivek-27/instagram-mern-clone',
+    image: projectInstagram,
+    isLive: true
+  },
+  {
+    id: 'flipkart-clone',
+    title: 'Flipkart E-Commerce Marketplace',
+    category: 'fullstack',
+    categoryLabel: 'Full-Stack MERN',
+    badge: 'E-Commerce',
+    desc: 'Comprehensive online retail shopping experience featuring dynamic catalog filtering, cart management, Redux state synchronization, and payment gateway integration.',
+    highlights: [
+      'Redux Toolkit centralized cart and user state store',
+      'Secure payment processing workflows with Paytm integration',
+      'Product category browsing, search indexing, and customer reviews'
+    ],
+    tech: ['React.js', 'Redux', 'Node.js', 'Express', 'MongoDB', 'Paytm API'],
+    liveUrl: 'https://flipkart-com-cl.netlify.app/',
+    githubUrl: 'https://github.com/Vivek-27/flipkart-ecommerce-clone',
+    image: null,
+    isLive: true
+  },
+  {
+    id: 'task-manager',
+    title: 'TaskFlow: Collaborative Task & Project Manager',
+    category: 'fullstack',
+    categoryLabel: 'Full-Stack MERN',
+    badge: 'Productivity',
+    desc: 'Productivity web application for tracking sprints, scheduling deadlines, and managing task lifecycles with user authentication and priority filtering.',
+    highlights: [
+      'CRUD task operations with category filters and due dates',
+      'Secure authentication with encrypted credentials in MongoDB',
+      'Clean modern dashboard UI built with responsive CSS'
+    ],
+    tech: ['React.js', 'Node.js', 'Express', 'MongoDB', 'REST API'],
+    liveUrl: 'https://task-management-app-frontend-i5ab.onrender.com',
+    githubUrl: 'https://github.com/Vivek-27/taskflow-mern-app',
+    image: null,
+    isLive: true
+  },
+  {
+    id: 'snake-water-gun',
+    title: 'Multiplayer Real-Time Arena (Socket.io)',
+    category: 'fullstack',
+    categoryLabel: 'WebSockets & Gaming',
+    badge: 'Socket.IO',
+    desc: 'Real-time multiplayer browser game enabling instant 1v1 matchmaking with strangers or private room battles with friends via secret room codes.',
+    highlights: [
+      'Sub-20ms bidirectional event synchronization with Socket.io',
+      'Private room code generation and random player queue logic',
+      'Interactive scoreboard and visual match state animations'
+    ],
+    tech: ['Node.js', 'Socket.IO', 'JavaScript', 'HTML5 Canvas', 'Render'],
+    liveUrl: 'https://snake-water-gun-2aot.onrender.com/',
+    githubUrl: 'https://github.com/Vivek-27/snake-water-gun-multiplayer',
+    image: projectSnakeWaterGun,
+    isLive: true
+  },
+  {
+    id: 'youtube-clone',
+    title: 'YouTube Streaming Platform Clone',
+    category: 'fullstack',
+    categoryLabel: 'Frontend & APIs',
+    badge: 'Media',
+    desc: 'Video streaming web application featuring video search, channel feeds, video player controls, and simulated comment interactions.',
+    highlights: [
+      'Rapid video catalog discovery and categorization',
+      'Custom video player embedding and related video feeds',
+      'Responsive editorial dark theme'
+    ],
+    tech: ['React.js', 'RapidAPI / YouTube API', 'CSS Grid', 'Netlify'],
+    liveUrl: 'https://github.com/Vivek-27',
+    githubUrl: 'https://github.com/Vivek-27',
+    image: projectYoutube,
+    isLive: false
+  },
+  {
+    id: 'apple-vision',
+    title: 'Apple Vision Pro Interactive Showcase',
+    category: 'fullstack',
+    categoryLabel: 'Creative UI / Animation',
+    badge: 'Interactive UI',
+    desc: 'Fluid editorial product showcase replicating Apple Vision Pro promotional aesthetics, high-precision canvas canvas animations, and interactive scroll interactions.',
+    highlights: [
+      'Smooth frame-by-frame canvas scrubbing on scroll',
+      'Apple design language typography and glassmorphic panels'
+    ],
+    tech: ['HTML5', 'CSS3', 'JavaScript', 'GSAP ScrollTrigger'],
+    liveUrl: 'https://visionapple.netlify.app/',
+    githubUrl: 'https://github.com/Vivek-27/apple-vision-pro-showcase',
+    image: projectVision,
+    isLive: true
+  },
+  {
+    id: 'file-share',
+    title: 'Secure File Sharing Online',
+    category: 'fullstack',
+    categoryLabel: 'Full-Stack Utility',
+    badge: 'Cloud Storage',
+    desc: 'Digital asset sharing service generating encrypted temporary download links for large files with download limits and expiration timestamps.',
+    highlights: [
+      'Direct file streaming without memory exhaustion',
+      'Auto-expiring download URLs with token authentication'
+    ],
+    tech: ['Node.js', 'Express', 'Multer', 'MongoDB', 'Netlify'],
+    liveUrl: 'https://filesharingonline.netlify.app/',
+    githubUrl: 'https://github.com/Vivek-27/secure-file-share-web',
+    image: projectFileShare,
+    isLive: true
+  },
+  {
+    id: 'parallax-landing',
+    title: 'Parallax Scenic Landing Experience',
+    category: 'fullstack',
+    categoryLabel: 'Creative Animation',
+    badge: 'GSAP Parallax',
+    desc: 'Editorial parallax storytelling landing page with multi-plane depth illusions and smooth scroll triggers built in Vanilla JavaScript and GSAP.',
+    highlights: [
+      'Multi-layered SVG depth translation based on scroll velocity',
+      'Hardware-accelerated CSS transforms'
+    ],
+    tech: ['JavaScript', 'GSAP', 'CSS3', 'Netlify'],
+    liveUrl: 'https://parallax-landing-page23.netlify.app/',
+    githubUrl: 'https://github.com/Vivek-27/parallax-landing-showcase',
+    image: projectLanding,
+    isLive: true
+  }
+];
+
+const CATEGORIES = [
+  { id: 'all', label: 'All Projects' },
+  { id: 'fullstack', label: 'Full-Stack / MERN' },
+  { id: 'backend', label: 'Cloud & Backend' },
+  { id: 'data_ai', label: 'Data & GenAI' },
+  { id: 'live', label: 'Live Deployments' }
+];
 
 const Work = () => {
-  const btnClicked = { backgroundColor: 'black', color: 'white' };
-  const [allBtnStyle, setAllBtnStyle] = useState({
-    backgroundColor: 'black',
-    color: 'white'
+  const [activeTab, setActiveTab] = useState('all');
+  const [isGrid, setIsGrid] = useState(true);
+  const [resumeOpen, setResumeOpen] = useState(false);
+
+  const filteredProjects = PROJECTS_DATA.filter((item) => {
+    if (activeTab === 'all') return true;
+    if (activeTab === 'live') return item.isLive;
+    return item.category === activeTab;
   });
-  const [liveBtnStyle, setLiveBtnStyle] = useState({});
-  const [devBtnStyle, setDevBtnStyle] = useState({});
-  const imagesFlipkartProj = [
-    { url: require('../images/flipkartProject/p1.png') },
-    { url: require('../images/flipkartProject/p2.png') },
-    { url: require('../images/flipkartProject/p3.png') }
-  ];
-
-  const imagesTaskProject = [
-    { url: require('../images/taskManagerProject/p1.png') },
-    { url: require('../images/taskManagerProject/p2.png') },
-    { url: require('../images/taskManagerProject/p3.png') },
-    { url: require('../images/taskManagerProject/p4.png') }
-  ];
-  const images = [
-    { url: require('../images/project_vision.png') },
-    { url: require('../images/project_vision2.png') },
-    { url: require('../images/project_vision3.png') },
-    { url: require('../images/project_vision4.png') }
-  ];
-
-  const btnStyleChange = (e) => {
-    if (e === 'all') {
-      setAllBtnStyle(btnClicked);
-      setDevBtnStyle({});
-      setLiveBtnStyle({});
-    } else if (e === 'live') {
-      setLiveBtnStyle(btnClicked);
-      setAllBtnStyle({});
-      setDevBtnStyle({});
-    } else if (e === 'dev') {
-      setDevBtnStyle(btnClicked);
-      setAllBtnStyle({});
-      setLiveBtnStyle({});
-    }
-  };
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    // REVEAL //
-    gsap.utils.toArray('.project1>.left>.img-p1').forEach(function (elem) {
-      ScrollTrigger.create({
-        trigger: elem,
-        onEnter: function () {
-          gsap.fromTo(
-            elem,
-            { y: 70, autoAlpha: 0 },
-            {
-              duration: 0.5,
-              opacity: 1,
-              y: 0,
-              autoAlpha: 1,
-              overwrite: 'auto'
-            }
-          );
-        }
-      });
-    });
-    gsap.utils.toArray('.project1>.left>.img-p2').forEach(function (elem) {
-      ScrollTrigger.create({
-        trigger: elem,
-        onEnter: function () {
-          gsap.fromTo(
-            elem,
-            { x: 0, autoAlpha: 0 },
-            {
-              duration: 1.5,
-              x: -120,
-              autoAlpha: 1,
-              overwrite: 'auto'
-            }
-          );
-        }
-      });
-    });
-    gsap.utils.toArray('.project1>.left>.img-p3').forEach(function (elem) {
-      ScrollTrigger.create({
-        trigger: elem,
-        onEnter: function () {
-          gsap.fromTo(
-            elem,
-            { x: 30, autoAlpha: 0 },
-            {
-              duration: 2,
-              x: 120,
-              autoAlpha: 1,
-              overwrite: 'auto'
-            }
-          );
-        }
-      });
-    });
-
-    gsap.utils.toArray('.project1>.project2>.card3').forEach(function (elem) {
-      ScrollTrigger.create({
-        trigger: elem,
-        onEnter: function () {
-          gsap.fromTo(
-            elem,
-            { x: -10, autoAlpha: 0 },
-            {
-              duration: 2,
-              x: 50,
-              autoAlpha: 1,
-              overwrite: 'auto'
-            }
-          );
-        }
-      });
-    });
-    gsap.utils.toArray('.project1>.project2>.card1').forEach(function (elem) {
-      ScrollTrigger.create({
-        trigger: elem,
-        onEnter: function () {
-          gsap.fromTo(
-            elem,
-            { x: 10, autoAlpha: 0 },
-            {
-              duration: 2,
-              x: -50,
-              autoAlpha: 1,
-              overwrite: 'auto'
-            }
-          );
-        }
-      });
-    });
-    gsap.utils.toArray('.project1>.project2>.card2').forEach(function (elem) {
-      ScrollTrigger.create({
-        trigger: elem,
-        onEnter: function () {
-          gsap.fromTo(
-            elem,
-            { scale: 0.9, autoAlpha: 0 },
-            {
-              duration: 0.5,
-              scale: 1,
-              autoAlpha: 1,
-              overwrite: 'auto'
-            }
-          );
-        }
-      });
-    });
-  }, []);
 
   return (
     <>
-      <div id="home" className="home">
-        <div className="mid-text">
-          <h2>Creating next level digital products</h2>
-        </div>
-        <div className="mid-menu">
-          <div className="left">
-            <button onClick={() => btnStyleChange('all')} style={allBtnStyle}>
-              All
-            </button>
-            <button onClick={() => btnStyleChange('live')} style={liveBtnStyle}>
-              Live
-            </button>
-            <button onClick={() => btnStyleChange('dev')} style={devBtnStyle}>
-              Development
+      <ResumeModal isOpen={resumeOpen} onClose={() => setResumeOpen(false)} />
+
+      <div className="work-page-wrapper">
+        <div className="work-header">
+          <div className="work-header-top">
+            <span className="work-eyebrow">PORTFOLIO ARCHIVES</span>
+            <button
+              type="button"
+              className="work-resume-btn"
+              onClick={() => setResumeOpen(true)}
+            >
+              📄 Download Tailored Resumes (3 Tracks)
             </button>
           </div>
-          <div className="right">
-            <div className="list-view circle">
-              <div className="line"></div>
-              <div className="line"></div>
-              <div className="line"></div>
-              <div className="line"></div>
+
+          <h1 className="work-title">Crafting Resilient Digital Products &amp; Architectures</h1>
+          <p className="work-subtitle">
+            Explore {PROJECTS_DATA.length} projects spanning distributed cloud backends, real-time event streaming with Kafka &amp; Redis, modern MERN web apps, and Generative AI pipelines.
+          </p>
+
+          <div className="work-controls-bar">
+            {/* Filter Pills */}
+            <div className="filter-pills-row">
+              {CATEGORIES.map((cat) => (
+                <button
+                  key={cat.id}
+                  type="button"
+                  className={`filter-pill ${activeTab === cat.id ? 'active' : ''}`}
+                  onClick={() => setActiveTab(cat.id)}
+                >
+                  {cat.label}
+                  {cat.id === 'all' && ` (${PROJECTS_DATA.length})`}
+                  {cat.id === 'live' && ` (${PROJECTS_DATA.filter((p) => p.isLive).length})`}
+                </button>
+              ))}
             </div>
-            <div className="grid-view circle">
-              <div className="box"></div>
-              <div className="box"></div>
-              <div className="box"></div>
-              <div className="box"></div>
-            </div>
-          </div>
-        </div>
-        <div className="projects">
-          {/* Oxima Ride Hailing */}
-          <div className="project1 item oxima-ride-hailing">
-            <div className="left-text">
-              <h5>Oxima: Real-Time Fleet & Ride-Hailing Platform ⭐</h5>
-              <p>
-                Enterprise-grade nationwide ride-hailing system built with Node.js, React 18, Redis Geospatial driver tracking, Apache Kafka telemetry streaming, and OSRM turn-by-turn road navigation.
-              </p>
-              <div className="end">
-                <span>
-                  <p>Key Highlights —</p>
-                  <ul>
-                    <li>Redis Spatial GEO driver tracking</li>
-                    <li>Apache Kafka telemetry event streaming</li>
-                    <li>OSRM turn-by-turn road routing</li>
-                    <li>20-meter proximity PIN-lock verification</li>
-                    <li>City surge pricing with automated TTL</li>
-                  </ul>
-                </span>
-                <div className="links">
-                  <a
-                    style={{ color: 'orange' }}
-                    href="https://github.com/Vivek-27/oxima-ride-hailing"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View Code
-                  </a>
+
+            {/* View Layout Toggle */}
+            <div className="view-toggle-wrap">
+              <button
+                type="button"
+                className={`view-toggle-btn ${isGrid ? 'active' : ''}`}
+                onClick={() => setIsGrid(true)}
+                title="Grid View"
+                aria-label="Grid View"
+              >
+                <div className="grid-icon">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          {/* AWS Cloud Deployment */}
-          <div className="project1 item project-even aws-ticketdesk">
-            <div className="left-text">
-              <h5>AWS Cloud Deployment (TicketDesk) ☁️</h5>
-              <p>
-                Production AWS deployment POC implementing Terraform Infrastructure-as-Code, containerized FastAPI on ECS Fargate behind an ALB, private RDS PostgreSQL, S3 presigned uploads, and GitHub Actions OIDC CI/CD.
-              </p>
-              <div className="end">
-                <span>
-                  <p>Key Highlights —</p>
-                  <ul>
-                    <li>AWS ECS Fargate & Application Load Balancer</li>
-                    <li>Multi-AZ RDS PostgreSQL in private subnets</li>
-                    <li>S3 Event-driven Lambda thumbnail generation</li>
-                    <li>Terraform IaC (zero-to-production automation)</li>
-                    <li>GitHub Actions CI/CD with AWS OIDC authentication</li>
-                  </ul>
-                </span>
-                <div className="links">
-                  <a
-                    style={{ color: 'orange' }}
-                    href="https://github.com/Vivek-27/poc-aws-deployment-ticketdesk"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View Code
-                  </a>
+              </button>
+              <button
+                type="button"
+                className={`view-toggle-btn ${!isGrid ? 'active' : ''}`}
+                onClick={() => setIsGrid(false)}
+                title="List View"
+                aria-label="List View"
+              >
+                <div className="list-icon">
+                  <span></span>
+                  <span></span>
+                  <span></span>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Generative AI Toolkit */}
-          <div className="project1 item genai-toolkit">
-            <div className="left-text">
-              <h5>Generative AI & LangChain LCEL Architecture Toolkit 🤖</h5>
-              <p>
-                Comprehensive hands-on Generative AI engineering toolkit demonstrating modern LangChain Expression Language (LCEL) Runnables, parallel chains, Pydantic structured outputs, and RAG document ingestion pipelines.
-              </p>
-              <div className="end">
-                <span>
-                  <p>Key Highlights —</p>
-                  <ul>
-                    <li>LCEL Runnables (Sequence, Parallel, Passthrough)</li>
-                    <li>Pydantic schemas & structured JSON enforcement</li>
-                    <li>Multi-source RAG loaders (Directory, Web, Lazy loading)</li>
-                    <li>OpenAI GPT-4o & HuggingFace Hub integrations</li>
-                  </ul>
-                </span>
-                <div className="links">
-                  <a
-                    style={{ color: 'orange' }}
-                    href="https://github.com/Vivek-27/generative-ai-langchain-toolkit"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View Code
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Presentation Attack Detection */}
-          <div className="project1 item project-even pad-deepfake">
-            <div className="left-text">
-              <h5>Presentation Attack Detection (PAD) Deepfake API 🧠</h5>
-              <p>
-                Computer vision deep learning microservice for biometric anti-spoofing and deepfake detection. Built with PyTorch (fine-tuned ResNet-18) and Flask RESTful API.
-              </p>
-              <div className="end">
-                <span>
-                  <p>Key Highlights —</p>
-                  <ul>
-                    <li>Fine-tuned ResNet-18 convolutional neural network</li>
-                    <li>Real vs. spoof binary image classification</li>
-                    <li>Low-latency evaluation mode with Softmax scoring</li>
-                    <li>RESTful Flask inference microservice</li>
-                  </ul>
-                </span>
-                <div className="links">
-                  <a
-                    style={{ color: 'orange' }}
-                    href="https://github.com/Vivek-27/deepfake-detection-pad-api"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View Code
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="project1 item instagram-clone">
-            <div className="left-text">
-              <h5>Instagram Clone </h5>
-              <p>
-                In this project, I have build Instagram Clone using React Js (as
-                front-end) and Node Js (as back-end), which includes creating a
-                posting page where users can scroll and see the posted images.
-              </p>
-              <div className="end">
-                <span>
-                  <p>Features —</p>
-                  <ul>
-                    <li>Follow other users</li>
-                    <li>Post Images</li>
-                    <li>Like posts</li>
-                    <li>Comment on post</li>
-                    <li>Sign Up and Login</li>
-                    <li>Edit Profile</li>
-                  </ul>
-                </span>
-                <span>
-                  <p>Credentials (phony) -</p>
-                  <ul>
-                    <li>email:- instagram@gmail.com</li>
-                  </ul>
-                  <ul>
-                    <li>password:- admin</li>
-                  </ul>
-                </span>
-                <div className="links">
-                  <a
-                    style={{ color: 'orange' }}
-                    href="https://instagram-cc.vercel.app/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Visit
-                  </a>
-                  <a
-                    href="https://github.com/Vivek-27/instagram-mern-clone"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View Code
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="left">
-              <img
-                className="img-p2"
-                src={require('../images/project_instagram2.png')}
-                alt=""
-              />
-
-              <img
-                className="img-p3"
-                src={require('../images/project_instagram3.png')}
-                alt=""
-              />
-              <img
-                className="img-p1"
-                src={require('../images/project_instagram.png')}
-                alt=""
-              />
-            </div>
-          </div>
-
-          <div className="project1 item project-even file-sharing-app">
-            <div className="left project2">
-              <SimpleImageSlider
-                width={'90%'}
-                height={'70%'}
-                images={imagesFlipkartProj}
-                navSize={20}
-                loop
-                autoPlay
-                showNavs={true}
-                navMargin={5}
-              />
-            </div>
-
-            <div className="left-text">
-              <h5>
-                Flipkart Clone: <h6>MERN Stack with JWT, Paytm & Redux</h6>
-              </h5>
-              <p>
-                Shop effortlessly with our MERN stack Flipkart clone. Secure
-                authentication with JWT, swift transactions via Paytm, and a
-                dynamic UI powered by Redux make for a seamless online shopping
-                experience.
-              </p>
-              <div className="end">
-                <span>
-                  <p>Key Features:</p>
-                  <ul>
-                    <li>Secure JWT Authentication</li>
-                    <li>Paytm Payment Gateway Integration</li>
-                    <li>Responsive UI with Redux State Management</li>
-                  </ul>
-                </span>
-                <div className="links">
-                  <a
-                    style={{ color: 'orange' }}
-                    href="https://flipkart-com-cl.netlify.app/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Visit
-                  </a>
-                  <a
-                    href="https://github.com/Vivek-27/flipkart-ecommerce-clone"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View Code
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="project1 item snakewatergun">
-            <div className="left-text">
-              <h5>Snake Water Gun Game⭐</h5>
-              <p>
-                Multiplayer online game, can play with friends or with
-                strangers. Integrated Socket.io technology to address smooth
-                game experience.
-              </p>
-              <div className="end">
-                <span>
-                  <p>Features —</p>
-                  <ul>
-                    <li>Play with friends using private key</li>
-                    <li>Play with random Strangers.</li>
-                  </ul>
-                </span>
-                <div className="links">
-                  <a
-                    style={{ color: 'orange' }}
-                    href="https://snake-water-gun-2aot.onrender.com/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Visit
-                  </a>
-                  <a
-                    href="https://github.com/Vivek-27/snake-water-gun-multiplayer"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View Code
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="left">
-              <img
-                style={{ scale: '.8' }}
-                className="img-p3 project-parallax-img"
-                src={require('../images/project_snake_water_gun.png')}
-                alt=""
-              />
-            </div>
-          </div>
-          <div className="project1 item project-even task_management">
-            <div className="left project2">
-              <SimpleImageSlider
-                width={'100%'}
-                height={'45%'}
-                images={imagesTaskProject}
-                navSize={20}
-                loop
-                autoPlay
-                showNavs={true}
-                navMargin={5}
-              />
-            </div>
-
-            <div className="left-text">
-              <h5>
-                Task Manager:{' '}
-                <h6>
-                  To-do list webapp, view task and complete from anywhere using
-                  login functionality.
-                </h6>
-              </h5>
-              <p></p>
-              <div className="end">
-                <span>
-                  <p>Key Features:</p>
-                  <ul>
-                    <li>Login and Signup</li>
-                    <li>Protable</li>
-                    <li>Task Schedule</li>
-                  </ul>
-                </span>
-                <div className="links">
-                  <a
-                    style={{ color: 'orange' }}
-                    href="https://task-management-app-frontend-i5ab.onrender.com"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Visit
-                  </a>
-                  <a
-                    href="https://github.com/Vivek-27/taskflow-mern-app"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View Code
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="project1 item youtube-clone">
-            <div className="left-text">
-              <h5>YouTube Clone </h5>
-              <p>
-                This is a YouTube Clone that implements the main features of
-                YouTube using MERN Stack, here you will able to create your own
-                channel and post videos as you do in Youtube.
-              </p>
-              <div className="end">
-                <span>
-                  <p>Features —</p>
-                  <ul>
-                    <li>Post Videos</li>
-                    <li>Subscribe to any Channel</li>
-                    <li>Like and Dislike any video</li>
-                    <li>Comment on video</li>
-                  </ul>
-                </span>
-                <div className="links">
-                  <a
-                    style={{ color: 'orange' }}
-                    href="https://github.com/Vivek-27"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Visit
-                  </a>
-                  <a
-                    href="https://github.com/Vivek-27"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View Code
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="left project2">
-              <img
-                className="img-p2"
-                src={require('../images/project_youtube2.png')}
-                alt=""
-              />
-
-              <img
-                className="img-p3"
-                src={require('../images/project_youtube3.png')}
-                alt=""
-              />
-              <img
-                className="img-p1"
-                src={require('../images/project_youtube.png')}
-                alt=""
-              />
-            </div>
-          </div>
-
-          <div className="project1 item project-even file-sharing-app">
-            <div className="left project2">
-              <SimpleImageSlider
-                width={'90%'}
-                height={'70%'}
-                images={images}
-                navSize={20}
-                loop
-                autoPlay
-                showNavs={true}
-                navMargin={5}
-              />
-            </div>
-
-            <div className="left-text">
-              <h5>Apple Vision Web</h5>
-              <p>
-                This is a website of Apple Vision created using HTML, CSS and
-                JavaScript only. COntains some cool looking apple vision
-                animations.
-              </p>
-              <div className="end">
-                <div className="links">
-                  <a
-                    style={{ color: 'orange' }}
-                    href="https://visionapple.netlify.app/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Visit
-                  </a>
-                  <a
-                    href="https://github.com/Vivek-27/apple-vision-pro-showcase"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View Code
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="project1 item parallax-landing-page">
-            <div className="left-text">
-              <h5>Parallax Landing Page ⭐</h5>
-              <p>
-                This is complete Vanilla JavaScript project. I have used GSAP to
-                animate the parallax effect.
-              </p>
-              <div className="end">
-                <span>
-                  <p>Features —</p>
-                  <ul>
-                    <li>Simple Design</li>
-                    <li>Parallax effect.</li>
-                  </ul>
-                </span>
-                <div className="links">
-                  <a
-                    style={{ color: 'orange' }}
-                    href="https://parallax-landing-page23.netlify.app/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Visit
-                  </a>
-                  <a
-                    href="https://github.com/Vivek-27/parallax-landing-showcase"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View Code
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="left">
-              <img
-                style={{ scale: '.8' }}
-                className="img-p3 project-parallax-img"
-                src={require('../images/project_landing_page.png')}
-                alt=""
-              />
-            </div>
-          </div>
-
-          <div className="project1 item project-even file-sharing-app">
-            <div className="left project2">
-              <div className="card1 card"></div>
-              <div className="card2 card">
-                <img src={require('../images/project_fileShare.png')} alt="" />
-              </div>
-              <div className="card3 card"></div>
-            </div>
-            <div className="left-text">
-              <h5>File Share Online</h5>
-              <p>
-                This File sharing site provide services to access digital media
-                like photos, videos, documents, etc., from anywhere to its
-                users. These apps will help you to transfer large files easily.
-                It provide advanced link which you can share to person you want
-                to access that file.
-              </p>
-              <div className="end">
-                <span>
-                  <p>Features —</p>
-                  <ul>
-                    <li>Easy File Share online</li>
-                    <li>Provides file sharable link.</li>
-                  </ul>
-                </span>
-                <div className="links">
-                  <a
-                    style={{ color: 'orange' }}
-                    href="https://filesharingonline.netlify.app/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Visit
-                  </a>
-                  <a
-                    href="https://github.com/Vivek-27/secure-file-share-web"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View Code
-                  </a>
-                </div>
-              </div>
+              </button>
             </div>
           </div>
         </div>
-        <h1>Work</h1>
+
+        {/* Projects Display Container */}
+        <div className="work-content-container">
+          <AnimatePresence mode="popLayout">
+            <motion.div
+              layout
+              className={isGrid ? 'projects-grid-layout' : 'projects-list-layout'}
+            >
+              {filteredProjects.map((project) => (
+                <motion.div
+                  layout
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
+                  key={project.id}
+                  className={`project-card ${project.isLive ? 'has-live' : ''}`}
+                >
+                  <div className="project-card-header">
+                    <div className="card-badge-row">
+                      <span className="project-badge">{project.badge}</span>
+                      <span className="project-category-tag">{project.categoryLabel}</span>
+                    </div>
+                    {project.isLive && (
+                      <span className="live-status-pill">
+                        <span className="live-dot"></span> LIVE APP
+                      </span>
+                    )}
+                  </div>
+
+                  {project.image && isGrid && (
+                    <div className="project-preview-wrap">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="project-preview-img"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+
+                  <div className="project-card-body">
+                    <h3 className="project-card-title">{project.title}</h3>
+                    <p className="project-card-desc">{project.desc}</p>
+
+                    {project.highlights && project.highlights.length > 0 && (
+                      <div className="project-highlights-box">
+                        <span className="highlights-title">Key Highlights:</span>
+                        <ul className="highlights-list">
+                          {project.highlights.map((h, i) => (
+                            <li key={i}>{h}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    <div className="project-tech-tags">
+                      {project.tech.map((t, i) => (
+                        <span key={i} className="tech-badge">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="project-card-footer">
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn-card-visit"
+                      >
+                        Visit App ↗
+                      </a>
+                    )}
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn-card-github"
+                    >
+                      View Source ↗
+                    </a>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
+
+      {/* Page Transitions */}
       <div className="motionDiv">
         <motion.div
           className="slide-in"
@@ -734,14 +443,14 @@ const Work = () => {
           animate={{ scaleY: 0 }}
           exit={{ scaleY: 1 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        ></motion.div>
+        />
         <motion.div
           className="slide-out"
           initial={{ scaleY: 1 }}
           animate={{ scaleY: 0 }}
           exit={{ scaleY: 0 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        ></motion.div>
+        />
       </div>
     </>
   );

@@ -1,49 +1,76 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-dark: #1c1d20;
+  --bg-darker: #141517;
+  --bg-card: #222428;
+  --bg-light: #f8f9fa;
+  --text-primary: #1c1d20;
+  --text-white: #ffffff;
+  --text-muted: #747474;
+  --text-muted-light: #9ca3af;
+  --accent-teal: #0f766e;
+  --accent-aws: #ff9900;
+  --accent-blue: #3b82f6;
+  --border-light: rgba(0, 0, 0, 0.08);
+  --border-dark: rgba(255, 255, 255, 0.12);
+  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #0f0f0f;
 }
 
 html,
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: rgb(255, 253, 253);
-  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-primary);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media (max-width: 900px) {
-  html,
-  body {
-    font-family: 'Inter', sans-serif;
-    background-color: rgb(255, 253, 253);
-    color: #ffffff;
-    overflow-x: hidden !important;
-  }
-}
-div {
-  color: #808080;
-  font-size: 9vw;
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
 }
 
-h1 {
-  color: #d14848;
+::-webkit-scrollbar-track {
+  background: #141517;
 }
-#loading {
-  transition: all 0.15s linear 0.1s;
+
+::-webkit-scrollbar-thumb {
+  background: #33353a;
+  border-radius: 4px;
 }
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4b4e55;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Page Transition Overlays */
 .slide-in {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #0f0f0f;
+  background-color: #141517;
   transform-origin: bottom;
-  z-index: 3000;
+  z-index: 9999;
+  pointer-events: none;
 }
 
 .slide-out {
@@ -52,8 +79,8 @@ h1 {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #0f0f0f;
+  background-color: #141517;
   transform-origin: top;
-  z-index: 3000;
-  text-align: center;
+  z-index: 9999;
+  pointer-events: none;
 }

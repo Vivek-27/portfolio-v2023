@@ -1,157 +1,497 @@
-.about-container {
+/* ==========================================================================
+   ABOUT PAGE STYLES - Modern Dennis Snellenberg Aesthetic
+   ========================================================================== */
+
+.about-wrapper {
   width: 100%;
   min-height: 100vh;
-  padding: 8vw 10vw 5vw 10vw;
-  background-color: #f8f9fa;
-  color: #1c1d20;
+  background-color: #141517;
+  color: #ffffff;
+  padding: 80px 6vw 100px 6vw;
   display: flex;
   flex-direction: column;
-  gap: 60px;
-  animation: ease-in-bottom 0.6s ease;
+  gap: 70px;
 }
 
-.about-header h1 {
-  font-size: 5vw;
-  font-weight: 500;
-  line-height: 1.1;
-  color: #111827;
-  margin-bottom: 20px;
-}
-
-.about-header p {
-  font-size: 1.5vw;
-  color: #4b5563;
-  line-height: 1.6;
-  max-width: 850px;
-}
-
-.about-section {
+.about-hero-section {
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-.about-section-title {
-  font-size: 1.8vw;
-  font-weight: 600;
-  color: #111827;
-  border-bottom: 2px solid #e5e7eb;
-  padding-bottom: 12px;
+.about-hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
+.about-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #2dd4bf;
+  text-transform: uppercase;
+}
+
+.about-resume-hero-btn {
+  background: rgba(15, 118, 110, 0.2);
+  border: 1px solid rgba(45, 212, 191, 0.35);
+  color: #2dd4bf;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.about-resume-hero-btn:hover {
+  background: rgba(15, 118, 110, 0.35);
+  transform: translateY(-2px);
+}
+
+.about-hero-main {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-headline {
+  font-size: clamp(2rem, 4.2vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.about-bio-lead {
+  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+  line-height: 1.65;
+  color: #9ca3af;
+  max-width: 780px;
+}
+
+.about-bio-lead strong {
+  color: #ffffff;
+}
+
+.about-hero-avatar-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: #1c1d20;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.avatar-frame {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(45, 212, 191, 0.4);
+  box-shadow: 0 0 25px rgba(45, 212, 191, 0.2);
+}
+
+.about-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+}
+
+.avatar-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.avatar-title {
+  font-size: 12px;
+  color: #ff9900;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   3-TRACK RESUME SHOWCASE
+   ========================================================================== */
+
+.resume-showcase-section {
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.resume-showcase-card {
+  background: linear-gradient(145deg, #18191d 0%, #1e2025 100%);
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  border-radius: 24px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+.showcase-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.showcase-badge {
+  display: inline-block;
+  background: rgba(45, 212, 191, 0.15);
+  color: #2dd4bf;
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.showcase-left h2 {
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.showcase-left p {
+  font-size: 13.5px;
+  color: #9ca3af;
+  max-width: 800px;
+}
+
+.showcase-tracks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.showcase-track-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  transition: all 0.25s ease;
+}
+
+.showcase-track-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(45, 212, 191, 0.4);
+  transform: translateY(-2px);
+}
+
+.track-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.track-emoji {
+  font-size: 20px;
+}
+
+.track-card-header h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.showcase-track-card p {
+  font-size: 12.5px;
+  color: #9ca3af;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.track-card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-track-action {
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  flex: 1;
+  text-align: center;
+}
+
+.btn-track-action:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #2dd4bf;
+}
+
+.btn-track-action.primary {
+  background: #0f766e;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.3);
+}
+
+.btn-track-action.primary:hover {
+  background: #115e59;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   ABOUT SECTIONS & CARDS
+   ========================================================================== */
+
+.about-section {
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.section-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 14px;
+}
+
+.section-heading {
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* AWS Certifications */
 .cert-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 28px;
 }
 
 .cert-card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
+  background: #1c1d20;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
   padding: 32px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: all 0.3s ease;
 }
 
 .cert-card:hover {
+  border-color: rgba(255, 153, 0, 0.4);
   transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.cert-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .cert-badge {
-  display: inline-block;
-  background: #ff9900;
-  color: #ffffff;
+  font-size: 11px;
   font-weight: 700;
-  font-size: 12px;
   letter-spacing: 0.5px;
-  padding: 6px 14px;
+  padding: 4px 12px;
   border-radius: 20px;
-  margin-bottom: 16px;
 }
 
-.cert-badge.data-eng {
+.cert-badge.aws-dev {
+  background: #ff9900;
+  color: #141517;
+}
+
+.cert-badge.aws-data {
   background: #232f3e;
   color: #ff9900;
   border: 1px solid #ff9900;
 }
 
-.cert-card h3 {
-  font-size: 1.3vw;
+.cert-code {
+  font-size: 12px;
+  color: #9ca3af;
   font-weight: 600;
-  color: #111827;
-  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.cert-card h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 .cert-card p {
-  font-size: 0.95vw;
-  color: #4b5563;
+  font-size: 13.5px;
+  color: #9ca3af;
   line-height: 1.6;
 }
 
-.skills-grid {
+.cert-bullets {
+  list-style-type: disc;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cert-bullets li {
+  font-size: 13px;
+  color: #d1d5db;
+  line-height: 1.5;
+}
+
+/* Timeline Cards */
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 28px;
+}
+
+.timeline-card {
+  background: #1c1d20;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.timeline-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.timeline-top h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.timeline-top h4 {
+  font-size: 13.5px;
+  color: #2dd4bf;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.timeline-badge {
+  background: rgba(255, 255, 255, 0.06);
+  color: #e5e7eb;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.timeline-bullets {
+  list-style-type: disc;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.timeline-bullets li {
+  font-size: 13px;
+  color: #9ca3af;
+  line-height: 1.5;
+}
+
+/* Skills Matrix */
+.skills-matrix-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
+  gap: 24px;
 }
 
-.skill-category {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
+.skill-cat-card {
+  background: #1c1d20;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-.skill-category h4 {
-  font-size: 1.1vw;
-  font-weight: 600;
-  color: #1f2937;
-  margin-bottom: 14px;
+.skill-cat-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
 }
 
-.skill-tags {
+.skill-pill-wrap {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 
-.skill-tag {
-  background: #f3f4f6;
-  color: #374151;
-  font-size: 13px;
-  font-weight: 500;
-  padding: 6px 12px;
-  border-radius: 8px;
+.skill-pill {
+  background: rgba(255, 255, 255, 0.05);
+  color: #e5e7eb;
+  font-size: 12px;
+  padding: 5px 11px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 @media (max-width: 900px) {
-  .about-container {
-    padding: 25vw 6vw 10vw 6vw;
-    gap: 40px;
+  .about-hero-main {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 
-  .about-header h1 {
-    font-size: 10vw;
+  .about-hero-avatar-box {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 300px;
   }
 
-  .about-header p {
-    font-size: 16px;
+  .cert-grid,
+  .timeline-grid {
+    grid-template-columns: 1fr;
   }
 
-  .about-section-title {
-    font-size: 22px;
-  }
-
-  .cert-card h3 {
-    font-size: 18px;
-  }
-
-  .cert-card p {
-    font-size: 14px;
-  }
-
-  .skill-category h4 {
-    font-size: 16px;
+  .about-wrapper {
+    padding: 60px 5vw;
+    gap: 50px;
   }
 }
