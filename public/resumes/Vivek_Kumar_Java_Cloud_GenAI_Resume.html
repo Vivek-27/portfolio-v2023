@@ -185,12 +185,12 @@
 
     <div class="section">
       <div class="section-title">Professional Summary</div>
-      <p class="summary-text">Backend Software Engineer with hands-on expertise building resilient, distributed microservices using Java 17, Spring Boot, Apache Kafka, and AWS. Experienced in payment integration, asynchronous message brokers, Redis caching, relational schema optimization, and incorporating GenAI reasoning into backend workflows. Dual AWS Certified: Developer – Associate & Data Engineer – Associate.</p>
+      <p class="summary-text">Backend Software Engineer with hands-on expertise building resilient, distributed microservices, event-driven architectures, and cloud-native backends using Java 17, Spring Boot 3, Apache Kafka, and AWS. Experienced in payment gateway integration (Trustly HMAC-SHA256), Redis caching, and incorporating Generative AI reasoning workflows (Spring AI, LangChain, semantic vector search, and RAG) into enterprise backends. Dual AWS Certified (Developer – Associate & Data Engineer – Associate).</p>
     </div>
 
     <div class="section">
       <div class="section-title">Technical Skills</div>
-      <div class="skill-category"><strong>Core & Backend:</strong> Java (8/11/17), Spring Boot, Spring Security, Spring Data JPA, Hibernate, RESTful APIs, Microservices, MVC</div><div class="skill-category"><strong>Cloud & DevOps:</strong> AWS (EC2, ECS Fargate, S3, RDS, CloudWatch), Docker, Terraform (IaC), GitHub Actions CI/CD, Linux</div><div class="skill-category"><strong>Messaging & Caching:</strong> Apache Kafka, ActiveMQ, Redis (Caching, Geospatial, Pub/Sub), RabbitMQ</div><div class="skill-category"><strong>Generative AI & LLMs:</strong> LangChain, Spring AI, OpenAI APIs, LCEL, Vector Search, Automated Agent Workflows</div><div class="skill-category"><strong>Databases & Tools:</strong> PostgreSQL, MySQL, MongoDB, Git, Maven, Gradle, JUnit 5, Mockito, Postman, Jira, Agile</div>
+      <div class="skill-category"><strong>Core Java & Backend:</strong> Java (8/11/17), Spring Boot 3, Spring Security, Spring Data JPA, Hibernate, RESTful APIs, Microservices, MVC</div><div class="skill-category"><strong>Cloud & DevOps:</strong> AWS (ECS Fargate, Lambda, S3, RDS PostgreSQL, CloudWatch), Terraform (IaC), Docker, GitHub Actions CI/CD, Linux</div><div class="skill-category"><strong>Generative AI & LangChain:</strong> LangChain, Spring AI, LangGraph, LCEL, OpenAI APIs, Vector Databases (pgvector, ChromaDB), Semantic RAG Pipelines, Text-to-SQL, Redis Semantic Caching</div><div class="skill-category"><strong>Messaging & Caching:</strong> Apache Kafka, ActiveMQ, Redis (Caching, Geospatial, Pub/Sub), RabbitMQ</div><div class="skill-category"><strong>Databases & Testing:</strong> PostgreSQL, MySQL, MongoDB, Git, Maven, Gradle, JUnit 5, Mockito, Postman, Jira, Agile Scrum</div>
     </div>
 
     <div class="section">
@@ -201,7 +201,7 @@
         <div class="item-meta">Jul 2024 – Dec 2024</div>
       </div>
       <ul class="bullets">
-        <li>Engineered enterprise microservice modules in Java 17 & Spring Boot with global exception handling, validation frameworks, and RESTful APIs.</li><li>Integrated Trustly Payment Gateway workflows featuring HMAC-SHA256 signature verification, duplicate transaction filters, and idempotency.</li><li>Implemented Redis caching strategies to offload frequent database queries, slashing database load and decreasing latency by 40%.</li><li>Configured ActiveMQ and Kafka topics for reliable asynchronous event delivery across payment and notification services.</li><li>Authored robust unit and integration test suites using JUnit 5 and Mockito, ensuring over 85% code test coverage.</li><li>Participated in production AWS EC2 and RDS PostgreSQL deployments and handled Jira sprint tasks under Agile methodologies.</li>
+        <li>Engineered enterprise backend microservices in Java 17 & Spring Boot with global exception handling, validation frameworks, and RESTful APIs.</li><li>Integrated Trustly Payment Gateway workflows featuring HMAC-SHA256 signature verification, duplicate transaction filters, and idempotency.</li><li>Implemented Redis caching strategies to offload frequent database queries, slashing database load and decreasing latency by 40%.</li><li>Configured Kafka topics and ActiveMQ message brokers for reliable asynchronous event delivery across payment and notification services.</li><li>Developed an automated SQL query explanation and performance optimization bot using LangChain and OpenAI LLMs to assist developers in reviewing complex Hibernate queries.</li><li>Authored robust unit and integration test suites using JUnit 5 and Mockito, ensuring over 85% code test coverage.</li>
       </ul>
       
     </div>
@@ -210,27 +210,27 @@
       <div class="section-title">Key Projects</div>
       
       <div class="item-header">
-        <div class="item-title">Distributed Ride-Hailing Backend Microservice &mdash; <span style="font-weight:normal; color:#64748b; font-size:12.5px;">Java 17, Spring Boot, Apache Kafka, Redis, WebSockets, Docker, AWS</span></div>
-        <div class="item-meta"><a href="https://github.com/Vivek-27" target="_blank" style="color:#12388d; text-decoration:none;">View Project &rarr;</a></div>
-      </div>
-      <ul class="bullets">
-        <li>Architected high-throughput backend services handling ride dispatching, fare calculation, and real-time state synchronization.</li><li>Utilized Redis Geospatial indexes to achieve sub-50ms driver matching and Kafka topic partitions for guaranteed ordered event processing.</li><li>Secured microservice communications with Spring Security, JWT role-based access control, and WebSocket handshake authentication.</li>
-      </ul>
-      
-      <div class="item-header">
-        <div class="item-title">AWS ECS Fargate TicketDesk Deployment Infrastructure &mdash; <span style="font-weight:normal; color:#64748b; font-size:12.5px;">AWS ECS Fargate, Terraform, Docker, AWS RDS PostgreSQL, GitHub Actions</span></div>
-        <div class="item-meta"><a href="https://github.com/Vivek-27/poc-aws-deployment-ticketdesk" target="_blank" style="color:#12388d; text-decoration:none;">View Project &rarr;</a></div>
-      </div>
-      <ul class="bullets">
-        <li>Provisioned secure, production-grade cloud infrastructure using Terraform: VPC, multi-AZ subnets, Application Load Balancer, and ECS Fargate.</li><li>Automated continuous integration and zero-downtime rolling deployments using GitHub Actions and Amazon Elastic Container Registry (ECR).</li><li>Integrated AWS CloudWatch dashboards and health check alarms for proactive uptime and error rate monitoring.</li>
-      </ul>
-      
-      <div class="item-header">
-        <div class="item-title">Enterprise GenAI Knowledge Assistant Connector &mdash; <span style="font-weight:normal; color:#64748b; font-size:12.5px;">Java, Spring Boot / Spring AI, Python, LangChain, pgvector, OpenAI API</span></div>
+        <div class="item-title">Enterprise GenAI Knowledge Assistant & RAG Microservice &mdash; <span style="font-weight:normal; color:#64748b; font-size:12.5px;">Java 17, Spring Boot, Spring AI, Python, LangChain, pgvector, PostgreSQL, Docker</span></div>
         <div class="item-meta"><a href="https://github.com/Vivek-27/generative-ai-langchain-toolkit" target="_blank" style="color:#12388d; text-decoration:none;">View Project &rarr;</a></div>
       </div>
       <ul class="bullets">
-        <li>Constructed backend connector bridging relational SQL data with semantic vector search via pgvector for context-aware queries.</li><li>Implemented dynamic prompt construction and LLM function calling to synthesize automated reports from database records.</li>
+        <li>Architected enterprise knowledge extraction microservice integrating Spring Boot with a Python LangChain LCEL backend for semantic document Q&A and policy retrieval.</li><li>Implemented semantic vector search using pgvector in PostgreSQL with hybrid BM25 search, dynamic prompt templates, and conversational context retention.</li><li>Integrated Redis semantic caching for LLM responses, eliminating duplicate external model calls and slashing LLM API operating costs by 65%.</li>
+      </ul>
+      
+      <div class="item-header">
+        <div class="item-title">Distributed Ride-Hailing Backend Microservice (Oxima) &mdash; <span style="font-weight:normal; color:#64748b; font-size:12.5px;">Java 17, Spring Boot 3, Apache Kafka, Redis Geospatial, WebSockets, PostgreSQL, Docker</span></div>
+        <div class="item-meta"><a href="https://github.com/Vivek-27/oxima-ride-hailing" target="_blank" style="color:#12388d; text-decoration:none;">View Project &rarr;</a></div>
+      </div>
+      <ul class="bullets">
+        <li>Architected high-throughput backend services managing driver dispatching, fare calculation, and real-time state synchronization.</li><li>Utilized Redis Geospatial indexes (GEOADD, GEORADIUS) to achieve sub-50ms driver matching and Kafka topic partitions for guaranteed ordered event processing.</li><li>Secured microservice communications with Spring Security, JWT role-based access control, and WebSocket STOMP handshake authentication.</li>
+      </ul>
+      
+      <div class="item-header">
+        <div class="item-title">AWS ECS Fargate TicketDesk Cloud Infrastructure &mdash; <span style="font-weight:normal; color:#64748b; font-size:12.5px;">AWS ECS Fargate, Terraform, Docker, AWS RDS PostgreSQL, GitHub Actions, FastAPI</span></div>
+        <div class="item-meta"><a href="https://github.com/Vivek-27/poc-aws-deployment-ticketdesk" target="_blank" style="color:#12388d; text-decoration:none;">View Project &rarr;</a></div>
+      </div>
+      <ul class="bullets">
+        <li>Provisioned production-grade cloud infrastructure using Terraform (IaC): custom VPC, multi-AZ subnets, ALB, and auto-scaling ECS Fargate containers.</li><li>Automated continuous integration and zero-downtime rolling deployments using GitHub Actions with AWS OIDC authentication and Amazon ECR.</li><li>Integrated AWS CloudWatch dashboards and health check alarms for proactive uptime and error rate monitoring.</li>
       </ul>
       
     </div>

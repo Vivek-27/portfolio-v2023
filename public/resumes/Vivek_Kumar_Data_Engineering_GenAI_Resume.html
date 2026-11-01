@@ -185,12 +185,12 @@
 
     <div class="section">
       <div class="section-title">Professional Summary</div>
-      <p class="summary-text">Results-driven Data Engineer with demonstrated expertise in architecting batch and streaming data pipelines, distributed data processing with PySpark, and cloud data lakes on AWS. Proficient in Medallion Architecture, Kafka event streaming, and GenAI-powered conversational data analytics (Text-to-SQL & RAG). Dual AWS Certified: Data Engineer – Associate & Developer – Associate.</p>
+      <p class="summary-text">Results-driven Data Engineer with demonstrated expertise architecting batch and real-time streaming data pipelines, distributed data processing with PySpark, and cloud data lakehouses on AWS. Proficient in Medallion Architecture, Kafka event streaming, and GenAI-powered conversational data analytics (LangChain, Text-to-SQL agents, RAG over data catalogs, and vector databases). Dual AWS Certified (Data Engineer – Associate & Developer – Associate).</p>
     </div>
 
     <div class="section">
       <div class="section-title">Technical Skills</div>
-      <div class="skill-category"><strong>Big Data & Streaming:</strong> Apache Spark (PySpark), Apache Kafka, PySpark Structured Streaming, Delta Lake, Airflow</div><div class="skill-category"><strong>Data Modeling & Arch:</strong> Medallion Architecture (Bronze/Silver/Gold), Star/Snowflake Schema, Data Warehousing, Data Lakehouse</div><div class="skill-category"><strong>AWS & Cloud Data:</strong> AWS (S3, Glue, Athena, EMR, Redshift, RDS PostgreSQL, CloudWatch), Databricks, Docker</div><div class="skill-category"><strong>GenAI & ML Analytics:</strong> LangChain, Text-to-SQL, Vector Search, ChromaDB, PyTorch (CNNs, ResNet-18), OpenCV</div><div class="skill-category"><strong>Languages & DBs:</strong> Python, SQL (PostgreSQL, MySQL), Java, Bash, MongoDB, Redis</div><div class="skill-category"><strong>BI & Analytics:</strong> Power BI, Tableau, Metabase, Matplotlib, Seaborn, Query Optimization</div>
+      <div class="skill-category"><strong>Big Data & Streaming:</strong> Apache Spark (PySpark), Apache Kafka, PySpark Structured Streaming, Delta Lake, Airflow, Distributed Computing</div><div class="skill-category"><strong>Generative AI & LangChain:</strong> LangChain (LCEL), LangGraph (Self-Correcting Agents), Text-to-SQL Chains, Vector Search (ChromaDB, pgvector), Semantic Chunking, RAG over Data Dictionaries, OpenAI APIs</div><div class="skill-category"><strong>Cloud & AWS Data Stack:</strong> AWS (S3, Glue, Athena, EMR, Redshift, RDS PostgreSQL, CloudWatch), Databricks, Docker, Terraform</div><div class="skill-category"><strong>Data Modeling & Arch:</strong> Medallion Architecture (Bronze/Silver/Gold), Star/Snowflake Schema, Data Warehousing, Data Lakehouse, Parquet</div><div class="skill-category"><strong>Languages & DBs:</strong> Python, SQL (Advanced Query Optimization, Window Functions), Java, Bash, PostgreSQL, Redis, MongoDB</div><div class="skill-category"><strong>BI & Analytics:</strong> Power BI, Tableau, Metabase, Matplotlib, Data Quality Validation</div>
     </div>
 
     <div class="section">
@@ -201,7 +201,7 @@
         <div class="item-meta">Jul 2024 – Dec 2024</div>
       </div>
       <ul class="bullets">
-        <li>Designed and optimized SQL schemas in AWS RDS PostgreSQL for high-volume transaction processing, improving query execution by 35%.</li><li>Built streaming event pipelines using Apache Kafka and ActiveMQ to ingest transaction telemetry for reconciliation and audit logging.</li><li>Developed Python data transformation and sanitization scripts, eliminating invalid transaction payloads before persistence.</li><li>Integrated Redis caching to reduce repeated analytical query hits on transactional databases by 40%.</li><li>Documented data dictionaries, pipeline schemas, and collaborated across cross-functional engineering teams using Jira and Git.</li>
+        <li>Designed and optimized transactional schemas in AWS RDS PostgreSQL for high-volume billing records, improving query execution by 35%.</li><li>Built distributed streaming event pipelines using Apache Kafka and ActiveMQ to ingest transaction telemetry for reconciliation and audit logging.</li><li>Developed Python data transformation and sanitization scripts, eliminating invalid transaction payloads before downstream persistence.</li><li>Implemented Redis caching to reduce repeated analytical query hits on transactional databases by 40%.</li><li>Prototyped a LangChain Text-to-SQL analytics agent allowing internal business teams to query operational transaction metrics using natural language.</li><li>Documented data dictionaries, pipeline schemas, and collaborated across cross-functional engineering teams using Jira and Git.</li>
       </ul>
       
     </div>
@@ -210,35 +210,27 @@
       <div class="section-title">Key Projects</div>
       
       <div class="item-header">
-        <div class="item-title">Real-Time Banking Fraud Detection Streaming Pipeline &mdash; <span style="font-weight:normal; color:#64748b; font-size:12.5px;">Apache Kafka, PySpark Structured Streaming, Docker, Medallion Architecture</span></div>
-        <div class="item-meta"><a href="https://github.com/Vivek-27" target="_blank" style="color:#12388d; text-decoration:none;">View Project &rarr;</a></div>
+        <div class="item-title">GenAI Text-to-SQL Data Warehouse Assistant (LangChain & LCEL) &mdash; <span style="font-weight:normal; color:#64748b; font-size:12.5px;">Python, LangChain, LangGraph, LCEL, OpenAI API, PostgreSQL, ChromaDB</span></div>
+        <div class="item-meta"><a href="https://github.com/Vivek-27/generative-ai-langchain-toolkit" target="_blank" style="color:#12388d; text-decoration:none;">View Project &rarr;</a></div>
       </div>
       <ul class="bullets">
-        <li>Constructed streaming fraud detection pipeline ingesting transaction streams via Kafka and processing with PySpark Structured Streaming.</li><li>Implemented Medallion Architecture: Bronze (raw JSON ingestion to Parquet), Silver (schema validation & deduplication), Gold (real-time velocity scoring).</li><li>Deployed multi-container cluster via Docker Compose, enabling sub-second detection and alert dispatch on high-risk transactions.</li>
+        <li>Architected autonomous conversational data analyst translating natural language business inquiries into safe, executable, read-only SQL queries.</li><li>Implemented dynamic schema-pruning using ChromaDB vector store over table metadata and a LangGraph self-correcting loop that captures SQL execution errors and iteratively re-prompts the LLM for correction.</li><li>Integrated semantic few-shot example selection and guardrails, achieving 92%+ SQL syntax accuracy without exposing sensitive table data.</li>
       </ul>
       
       <div class="item-header">
-        <div class="item-title">Batch Sales ETL & Data Warehouse Pipeline &mdash; <span style="font-weight:normal; color:#64748b; font-size:12.5px;">PySpark, AWS S3, PostgreSQL, Delta Lake, Power BI, Python</span></div>
+        <div class="item-title">Real-Time Banking Fraud Detection Streaming Pipeline &mdash; <span style="font-weight:normal; color:#64748b; font-size:12.5px;">Apache Kafka, PySpark Structured Streaming, Delta Lake, Docker, PostgreSQL</span></div>
+        <div class="item-meta"><a href="https://github.com/Vivek-27" target="_blank" style="color:#12388d; text-decoration:none;">View Project &rarr;</a></div>
+      </div>
+      <ul class="bullets">
+        <li>Constructed streaming fraud detection pipeline ingesting transaction streams via Kafka and processing stateful aggregations with PySpark Structured Streaming.</li><li>Implemented Medallion Architecture: Bronze (raw JSON ingestion to Parquet), Silver (schema validation & deduplication), Gold (real-time velocity scoring).</li><li>Deployed multi-container cluster via Docker Compose, enabling sub-second detection and alert dispatch on high-risk transactions.</li>
+      </ul>
+      
+      <div class="item-header">
+        <div class="item-title">Batch Sales ETL & Cloud Data Warehouse Pipeline &mdash; <span style="font-weight:normal; color:#64748b; font-size:12.5px;">PySpark, AWS S3, PostgreSQL, Delta Lake, Power BI, Python</span></div>
         <div class="item-meta"><a href="https://github.com/Vivek-27" target="_blank" style="color:#12388d; text-decoration:none;">View Project &rarr;</a></div>
       </div>
       <ul class="bullets">
         <li>Engineered distributed batch ETL pipeline extracting multi-source POS logs and staging clean star-schema datasets into PostgreSQL/AWS S3.</li><li>Automated dirty data handling (duplicate transactions, missing customer keys, negative balances) with quarantine error-logging.</li><li>Configured interactive Power BI reporting dashboards connected to analytical views for real-time sales trend forecasting.</li>
-      </ul>
-      
-      <div class="item-header">
-        <div class="item-title">GenAI Text-to-SQL Analytics Assistant &mdash; <span style="font-weight:normal; color:#64748b; font-size:12.5px;">LangChain, LCEL, OpenAI API, PostgreSQL, ChromaDB</span></div>
-        <div class="item-meta"><a href="https://github.com/Vivek-27/generative-ai-langchain-toolkit" target="_blank" style="color:#12388d; text-decoration:none;">View Project &rarr;</a></div>
-      </div>
-      <ul class="bullets">
-        <li>Developed an AI assistant converting natural language business questions into precise, read-only SQL queries against warehouse schemas.</li><li>Leveraged vector retrieval over database schema metadata and few-shot prompt chaining to ensure zero hallucination and high execution accuracy.</li>
-      </ul>
-      
-      <div class="item-header">
-        <div class="item-title">Deepfake Presentation Attack Detection (PAD) API &mdash; <span style="font-weight:normal; color:#64748b; font-size:12.5px;">PyTorch, ResNet-18, OpenCV, FastAPI, Docker</span></div>
-        <div class="item-meta"><a href="https://github.com/Vivek-27/deepfake-detection-pad-api" target="_blank" style="color:#12388d; text-decoration:none;">View Project &rarr;</a></div>
-      </div>
-      <ul class="bullets">
-        <li>Trained a computer vision ResNet-18 deep neural network to detect biometric facial presentation attacks (print, replay spoofing).</li><li>Packaged model into a low-latency FastAPI inference service with Docker containerization.</li>
       </ul>
       
     </div>
