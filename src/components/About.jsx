@@ -164,6 +164,22 @@ const About = () => {
             <div className="timeline-card">
               <div className="timeline-top">
                 <div>
+                  <h3>Associate Engineer</h3>
+                  <h4>Virtusa &bull; India</h4>
+                </div>
+                <span className="timeline-badge">Dec 2025 – Present</span>
+              </div>
+              <ul className="timeline-bullets">
+                <li>Developing and deploying enterprise-grade microservices and full-stack solutions using Java 17, Spring Boot, React, and cloud architectures.</li>
+                <li>Designing low-latency APIs and event-driven data streaming pipelines with Apache Kafka and Redis caching.</li>
+                <li>Engineering Generative AI workflow automations using LangChain LCEL, dynamic prompt chaining, and vector embeddings.</li>
+                <li>Collaborating in global Agile Scrum engineering sprints, conducting pull request code reviews, and containerizing services with Docker.</li>
+              </ul>
+            </div>
+
+            <div className="timeline-card">
+              <div className="timeline-top">
+                <div>
                   <h3>Software Developer Intern</h3>
                   <h4>HulkHire &bull; Remote</h4>
                 </div>

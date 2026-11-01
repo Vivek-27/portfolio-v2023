@@ -216,8 +216,8 @@ const Home = () => {
                 <div className="highlight-text">Official AWS Associate Certifications (Developer &amp; Data Engineer)</div>
               </div>
               <div className="highlight-item">
-                <div className="highlight-num">Jul-Dec '24</div>
-                <div className="highlight-text">Software Developer Intern at HulkHire (Microservices &amp; Spring Boot)</div>
+                <div className="highlight-num">Present</div>
+                <div className="highlight-text">Associate Engineer at Virtusa (Cloud, Microservices &amp; GenAI)</div>
               </div>
               <div className="highlight-item">
                 <div className="highlight-num">2025</div>
